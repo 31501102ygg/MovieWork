@@ -117,17 +117,17 @@
 					<div class="carousel-inner" role="listbox">
 						<!--First slide-->
 						<div class="carousel-item active">
-							<img class="d-block" src="https://img3.doubanio.com/view/photo/l/public/p2518208870.webp" alt="First slide">
+							<img class="d-block" src="https://img3.doubanio.com/view/photo/l/public/p2518208870.webp" value="248170" alt="First slide">
 						</div>
 						<!--/First slide-->
 						<!--Second slide-->
 						<div class="carousel-item">
-							<img class="d-block" src="https://img3.doubanio.com/view/photo/l/public/p2521154351.webp" alt="Second slide">
+							<img class="d-block" src="https://img3.doubanio.com/view/photo/l/public/p2521154351.webp" value="341944" alt="Second slide">
 						</div>
 						<!--/Second slide-->
 						<!--Third slide-->
 						<div class="carousel-item">
-							<img class="d-block " src="https://img3.doubanio.com/view/photo/l/public/p2524376611.webp" alt="Third slide">
+							<img class="d-block " src="https://img3.doubanio.com/view/photo/l/public/p2524376611.webp" value="27069675" alt="Third slide">
 						</div>
 						<!--/Third slide-->
 					</div>
@@ -480,6 +480,11 @@
 			var child2 = $("#hotfilmlunbo_pf").children();
 			for(let i = 0; i < 6; i++) {
 				child[i].children[0].children[0].setAttribute("src", json[i].imghref);
+				child[i].children[0].children[0].addEventListener("click", function(){
+					let filmid = json[i].filmid;
+					sessionStorage.setItem("filmid",filmid);
+					window.location.href="./filminfo.html";
+				});
 				child[i].children[1].textContent = json[i].filmname;
 
 				let score = json[i].score*5/10;
@@ -569,6 +574,11 @@
 			var child2 = $("#newfilmlunbo_pf").children();
 			for(let i = 0; i < 6; i++) {
 				child[i].children[0].children[0].setAttribute("src", json[i].imghref);
+				child[i].children[0].children[0].addEventListener("click", function(){
+					let filmid = json[i].filmid;
+					sessionStorage.setItem("filmid",filmid);
+					window.location.href="./filminfo.html";
+				});
 				child[i].children[1].textContent = json[i].filmname;
 
 				let score = json[i].score*5/10;
@@ -602,6 +612,11 @@
 			})
 			}
 			//最新电影分页展示_结束
+			$(".d-block").click(function(){
+				var filmid = $(this).attr("value");
+				sessionStorage.setItem("filmid",filmid);
+				window.location.href = "./filminfo.html";
+			})
 		</script>
 	</body>
 

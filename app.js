@@ -10,6 +10,7 @@ var findUserRouter = require('./routes/SearchUser');
 var addUserRouter = require('./routes/addUser');
 var loadFilmsRouter = require('./routes/loadFilms');
 var loadFilmsbyindexRouter = require("./routes/loadfilmsbyindex");
+var getFilmInfoRouter = require("./routes/getfilminfo");
 var app = express();
 
 //cors
@@ -43,6 +44,7 @@ app.use('/findUser',findUserRouter);
 app.use('/adduser',addUserRouter);
 app.use('/loadfilms',loadFilmsRouter);
 app.use('/loadfilmsbyindex',loadFilmsbyindexRouter);
+app.use('/filminfo',getFilmInfoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
