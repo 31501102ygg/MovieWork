@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.sendFile("C:/Users/de'l'l/Web2/web/public/signup.html");
+  res.sendFile("E:/Github/MovieWork/public/signup.html");
 });
 
 module.exports = router;
