@@ -14,7 +14,7 @@ database : 'web'
 //执行创建连接 
 connection.connect();
 //SQL语句
-var  sql = 'SELECT password FROM users where username = ?';
+var  sql = 'SELECT userid,password FROM users where username = ?';
 
 router.get('/', function(req, res, next) {
     //解析请求参数
