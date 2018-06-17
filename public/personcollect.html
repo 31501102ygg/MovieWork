@@ -120,7 +120,7 @@
 							</li>
 	
 							<!--Numbers-->
-							<li class="page-item hotfilmsfy active">
+							<li class="page-item hotfilmsfy">
 								<a class="page-link" >1</a>
 							</li>
 	
@@ -289,7 +289,42 @@
 			let number = json[0];
 			number = number["COUNT(filmid)"];
 			console.log(number);
-			let index = Math.ceil(number/9);//分页每一页9个电影
+			var index = Math.ceil(number/9);//分页每一页9个电影
+			$(".page-item").eq(0).click(function(){
+				$("#collectfilms").empty();
+				let length = document.getElementsByClassName("page-item").length-2;
+				console.log(length);
+				let index1 = $(".active").eq(1).children("a").text();
+				console.log(index1);
+				if(index1 == 1)
+					index1 = length;
+				else
+					index1--;
+				loadbyindex(index1);
+				$(".active").eq(1).removeClass("active");
+				let items = document.getElementsByClassName("page-item");
+				items[index1].className = items[index1].className+" active";
+			})
+			$(".page-item").eq(1).click(function(){
+				$("#collectfilms").empty();
+				loadbyindex(1);
+				console.log($(".active").eq(0))
+				$(".active").eq(1).removeClass("active");
+				$(this).addClass("active");
+			})
+			$(".page-item").eq(2).click(function(){
+				$("#collectfilms").empty();
+				let length = document.getElementsByClassName("page-item").length-2;
+				let index1 = $(".active").eq(1).children("a").text();
+				if(index1 == length)
+					index1 = 1;
+				else
+					index1++;
+				loadbyindex(index1);
+				$(".active").eq(1).removeClass("active");
+				let items = document.getElementsByClassName("page-item");
+				items[index1].className = items[index1].className+" active";
+			})
 			if(index>1){
 				for(let i=2;i<=index;i++){
 				let ei = document.createElement("i");
@@ -297,16 +332,26 @@
 				let a = document.createElement("a");
 				a.className = "page-link";
 				a.textContent = i;
+				a.addEventListener("click",function(){
+					$("#collectfilms").empty();
+					let index = $(this).text();
+					console.log(index);
+					loadbyindex(index);
+					$(".active").eq(1).removeClass("active");
+					$(this).parent().addClass("active");
+				})
 				ei.appendChild(a);
 				$(".page-item").eq(i-1).after(ei);
 				}
 			}
+			$(".page-item").eq(1).click();
 		}).catch(function(ex){
 			console.log('parsing failed: ', ex);
 		})
 
 		//插入收藏的电影图片信息
-		url = " http://127.0.0.1:3000/collect/loadcollectbyindex?"+"userid="+sessionStorage.getItem("userid");
+		function loadbyindex(index){
+		url = " http://127.0.0.1:3000/collect/loadcollectbyindex?"+"userid="+sessionStorage.getItem("userid")+"&index="+index;
 		fetch(url,{
 			method:"GET"
 		}).then(function(res){
@@ -315,6 +360,24 @@
 			console.log(json);
 			let number = json.length;
 			let rows = Math.ceil(number/3);
+			if(number == 0){
+				let div1 = document.createElement("div");
+				div1.className = "flex-center flex-column";
+				div1.setAttribute("style","height:100vh");
+				let h1 = document.createElement("h1");
+				h1.className = "animated fadeIn mb-4";
+				h1.textContent = "您还没有收藏过电影";
+				div1.appendChild(h1);
+				$("#collectfilms").append(div1);
+				$(".dtfy").eq(0).attr("style","display: none");
+			}
+			let div1 = document.createElement("div");
+				div1.className = "flex-center flex-column";
+				let h1 = document.createElement("h1");
+				h1.className = "animated fadeIn mb-4";
+				h1.textContent = "您收藏的电影";
+				div1.appendChild(h1);
+				$("#collectfilms").append(div1);
 			for(let i=0;i<rows;i++){
 				let div1 = document.createElement("div");
 				div1.className = "row";
@@ -331,6 +394,7 @@
 						let img1 = document.createElement("img");
 						img1.className = "card-img-top";
 						img1.setAttribute("src",json1.imghref);
+						img1.setAttribute("style","height:410px");
 						let a = document.createElement("a");
 						a.setAttribute("href","./filminfo.html");
 						a.setAttribute("value",json1.filmid);
@@ -345,16 +409,16 @@
 						div4.appendChild(img1);
 						div4.appendChild(a);
 						div3.appendChild(div4);
-						div2.appendChild(div3);
 						let div6 = document.createElement("div");
 						div6.className = "card-body";
 						let h4 = document.createElement("h4");
 						h4.className = "card-title";
 						h4.textContent = json1.filmname;
+						h4.setAttribute("style","height:90px");
 						div6.appendChild(h4);
-						div2.appendChild(div6);
-						div1.appendChild(div2);
-						$("#collectfilms").append(div1);
+						div3.appendChild(div6);
+						div2.appendChild(div3);
+						div1.appendChild(div2);	
 					}
 					}
 					else{
@@ -369,6 +433,7 @@
 						let img1 = document.createElement("img");
 						img1.className = "card-img-top";
 						img1.setAttribute("src",json1.imghref);
+						img1.setAttribute("style","height:410px");
 						let a = document.createElement("a");
 						a.setAttribute("href","./filminfo.html");
 						a.setAttribute("value",json1.filmid);
@@ -381,21 +446,22 @@
 						div4.appendChild(img1);
 						div4.appendChild(a);
 						div3.appendChild(div4);
-						div2.appendChild(div3);
 						let div6 = document.createElement("div");
 						div6.className = "card-body";
 						let h4 = document.createElement("h4");
 						h4.className = "card-title";
 						h4.textContent = json1.filmname;
+						h4.setAttribute("style","height:90px");
 						div6.appendChild(h4);
-						div2.appendChild(div6);
+						div3.appendChild(div6);
+						div2.appendChild(div3);
 						div1.appendChild(div2);
-						$("#collectfilms").append(div1);
 					}
 				}
-				
+				$("#collectfilms").append(div1);
 			}
 		})
+	}
 	</script>
 </body>
 

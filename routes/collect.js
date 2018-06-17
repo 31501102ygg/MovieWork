@@ -19,6 +19,7 @@ var sql2 = "DELETE from collects where userid = ? and filmid = ?";
 var sql3 = "select * from collects where userid = ? and filmid = ?";
 var sql4 = "SELECT COUNT(filmid) FROM collects where userid = ?";
 var sql5 = "select collects.filmid,filmname,imghref FROM collects INNER JOIN allfilms on collects.filmid = allfilms.filmid where userid = ?";
+var sql6 = "select collects.filmid,filmname,imghref FROM collects INNER JOIN allfilms on collects.filmid = allfilms.filmid where userid = ? limit ?,9";
 router.get('/add', function(req, res, next) {
     //解析请求参数
     var params = URL.parse(req.url, true).query;
@@ -94,6 +95,25 @@ router.get('/searchnumber',function(req,res,next){
 })
 
 router.get('/loadcollectbyindex',function(req,res,next){
+    //解析请求参数
+    var params = URL.parse(req.url, true).query;
+    let userid = params.userid;
+    let index = params.index;
+    index = (index-1)*9;
+    let query = [userid,index];
+    //查
+    connection.query(sql6,query,function (err, result) {
+        if(err){
+          console.log('[SELECT ERROR] - ',err.message);
+          return;
+        }
+        
+        console.log(result);
+        //把搜索值输出
+       res.jsonp(result);
+    });
+})
+router.get('/loadcollects',function(req,res,next){
     //解析请求参数
     var params = URL.parse(req.url, true).query;
     let userid = params.userid;
