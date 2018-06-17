@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title>Yip Tang Movie</title>
+	<link rel="shortcut icon" href="img/pic/html_16px_1210190_easyicon.net.ico" /> 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- Bootstrap core CSS -->
@@ -58,7 +59,7 @@
 				<!-- Links -->
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="#">热映电影
+						<a class="nav-link" href="./main1.html">热映电影
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
@@ -69,7 +70,7 @@
 						<a class="nav-link" href="#">影评</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">个人收藏</a>
+						<a class="nav-link" href="./personcollect.html">个人收藏</a>
 					</li>
 					<!-- Dropdown -->
 					<!--<li class="nav-item dropdown">
@@ -380,14 +381,6 @@
 			<!--/.Content-->
 		</div>
 	</div>
-	<!-- Central Modal Medium Success-->
-	<div class="alert alert-info alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert"
-                    aria-hidden="true">
-                &times;
-            </button>
-            信息！请注意这个信息。
-    </div>
 	<!-- SCRIPTS -->
 	<!-- JQuery -->
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
@@ -581,6 +574,75 @@
 			}).catch(function (ex) {
 				console.log('parsing failed: ', ex)
 			})
+		})
+
+		//加载电影短评功能
+		//时间格式转换函数
+		function timeFormatter(value) {
+			var da = new Date(value.replace("/Date(", "").replace(")/" , "").split( "+")[0]);
+			return da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate() + " " + da.getHours() + ":" + da.getMinutes() + ":" + da.getSeconds();
+		}
+
+		url = "http://127.0.0.1:3000/comment/searchbyfilm?"+"filmid=" + filmid ;
+		fetch(url,{
+			method:"GET"
+		}).then(function(res){
+			return res.json();
+		}).then(function(json){
+			var comment = $(".filmcomment").eq(0);
+			for(let i=0;i<json.length;i++){
+				let name=json[i].username;
+				let score = json[i].score;
+				let evaluate = json[i].evaluate;
+				let givelike = json[i].givelike;
+				let date = json[i].createdate;
+				let userid = json[i].userid;
+				let div1 = document.createElement("div");
+				div1.setAttribute("style","margin-top: 15px; border-bottom: solid black 1px;");
+				let h = document.createElement("h3");
+				h.textContent = name;
+				div1.appendChild(h);
+				let div2 = document.createElement("div");
+				div2.className="filmcomment-pj";
+				div2.setAttribute("style","color: yellow;")
+				let ei = document.createElement("i");
+					ei.setAttribute("style","color: black;");
+					ei.textContent = timeFormatter(date);
+					div2.appendChild(ei);
+				let score1 = Math.floor(score/2);
+				let score2 = Math.round(score/2);
+				let bool = score2>score1?true:false;
+				for(let j = 0; j < score1; j++) {
+					let ei = document.createElement("i");
+					ei.className = "fa fa-star";
+					div2.appendChild(ei);
+				}
+				if(bool){
+					let ei = document.createElement("i");
+					ei.className = "fa fa-star-half-full";
+					div2.appendChild(ei);
+				}
+				    ei = document.createElement("i");
+					ei.textContent = score;
+					div2.appendChild(ei);
+				let a = document.createElement("a");
+				a.className="giveAlike";
+				a.setAttribute("value",userid);
+				ei = document.createElement("i");
+				ei.setAttribute("style","color: black;float: right;");
+				ei.className="fa fa-thumbs-o-up";
+				ei.textContent=givelike;
+				a.appendChild(ei);
+				div2.appendChild(a);
+				let div3 = document.createElement("div");
+				div3.className = "filmcomment-con";
+				let p = document.createElement("p");
+				p.textContent=evaluate;
+				div3.appendChild(p);
+				div1.appendChild(div2);
+				div1.appendChild(div3);
+				comment.append(div1);
+			}
 		})
 	</script>
 </body>

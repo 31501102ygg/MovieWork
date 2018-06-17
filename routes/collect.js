@@ -17,7 +17,8 @@ connection.connect();
 var sql1 = "insert into collects (userid,filmid) values(?,?)";
 var sql2 = "DELETE from collects where userid = ? and filmid = ?";
 var sql3 = "select * from collects where userid = ? and filmid = ?";
-
+var sql4 = "SELECT COUNT(filmid) FROM collects where userid = ?";
+var sql5 = "select collects.filmid,filmname,imghref FROM collects INNER JOIN allfilms on collects.filmid = allfilms.filmid where userid = ?";
 router.get('/add', function(req, res, next) {
     //解析请求参数
     var params = URL.parse(req.url, true).query;
@@ -72,5 +73,41 @@ router.get('/search',function(req,res,next){
             //把搜索值输出
            res.jsonp(result);
         });
+})
+
+router.get('/searchnumber',function(req,res,next){
+    //解析请求参数
+    var params = URL.parse(req.url, true).query;
+    let userid = params.userid;
+    let query = [userid];
+    //查
+    connection.query(sql4,query,function (err, result) {
+        if(err){
+          console.log('[SELECT ERROR] - ',err.message);
+          return;
+        }
+        
+        console.log(result);
+        //把搜索值输出
+       res.jsonp(result);
+    });
+})
+
+router.get('/loadcollectbyindex',function(req,res,next){
+    //解析请求参数
+    var params = URL.parse(req.url, true).query;
+    let userid = params.userid;
+    let query = [userid];
+    //查
+    connection.query(sql5,query,function (err, result) {
+        if(err){
+          console.log('[SELECT ERROR] - ',err.message);
+          return;
+        }
+        
+        console.log(result);
+        //把搜索值输出
+       res.jsonp(result);
+    });
 })
 module.exports = router;
