@@ -17,9 +17,13 @@ connection.connect();
 var sql1 = "insert into shortcomment (userid,filmid,score,evaluate,givelike,createdate) values(?,?,?,?,0,?)";
 var sql2 = "select * from shortcomment where userid = ? and filmid = ?";
 var sql3 = "SELECT * from shortcomment INNER JOIN users on shortcomment.userid = users.userid where filmid = ?";
-
-router.post('/add', function(req, res, next) {
-  Date.prototype.format = function(format)
+var sql4 = "insert into otherscomments (commentid,otheruserid,content,createtime) values(?,?,?,?)";
+var sql5 = "select username,content,createtime from otherscomments INNER JOIN users on users.userid = otherscomments.otheruserid where commentid = ?";
+var sql6 = "update shortcomment set givelike = givelike+1 where commentid = ?";
+var sql7 = "insert into usergivelike (commentid,userid) values(?,?)";
+var sql8 = "SELECT * FROM usergivelike WHERE userid = ? AND usergivelike.commentid IN(select shortcomment.commentid from shortcomment where filmid = ?)";
+//时间格式化
+Date.prototype.format = function(format)
 {
  var o = {
  "M+" : this.getMonth()+1, //month
@@ -38,8 +42,9 @@ router.post('/add', function(req, res, next) {
  ("00"+ o[k]).substr((""+ o[k]).length));
  return format;
 }
+
+router.post('/add', function(req, res, next) {
     //解析请求参数
-    var params = URL.parse(req.url, true).query;
     let userid = req.body.userid;
     let filmid = req.body.filmid;
     let score = req.body.score;
@@ -95,4 +100,89 @@ router.get('/searchbyfilm',function(req,res,next){
      res.jsonp(result);
   });
 })
+
+router.post('/addcomment',function(req,res,next){
+  //解析请求参数
+  let userid = req.body.userid;
+    let commentid = req.body.commentid;
+    let content = req.body.content;
+    let otheruserid = req.body.otheruserid;
+    let d1 = new Date().format('yyyy-MM-dd hh:mm:ss');
+    let query = [commentid,otheruserid,content,d1];
+    //查
+    connection.query(sql4,query,function (err, result) {
+        if(err){
+          console.log('[SELECT ERROR] - ',err.message);
+          return;
+        }
+        
+        console.log("successful");
+        //把搜索值输出
+       res.jsonp(result);
+    });
+})
+
+router.get('/loadotherscomment',function(req,res,next){
+  //解析请求参数
+  var params = URL.parse(req.url, true).query;
+  let commentid = params.commentid;
+  let query = [commentid];
+  //查
+  connection.query(sql5,query,function (err, result) {
+      if(err){
+        console.log('[SELECT ERROR] - ',err.message);
+        return;
+      }
+      
+      console.log(result);
+      //把搜索值输出
+     res.jsonp(result);
+  });
+})
+
+router.get('/updatelike',function(req,res,next){
+  //解析请求参数
+  var params = URL.parse(req.url, true).query;
+  let commentid = params.commentid;
+  let userid = params.userid;
+  let query = [commentid];
+  //查
+  connection.query(sql6,query,function (err, result) {
+      if(err){
+        console.log('[SELECT ERROR] - ',err.message);
+        return;
+      }
+  });
+
+  query = [commentid,userid];
+  connection.query(sql7,query,function (err, result) {
+    if(err){
+      console.log('[SELECT ERROR] - ',err.message);
+      return;
+    }
+    console.log(result);
+    //把搜索值输出
+    res.jsonp(result);
+});
+})
+
+router.get('/loaduserlike',function(req,res,next){
+  //解析请求参数
+  var params = URL.parse(req.url, true).query;
+  let userid = params.userid;
+  let filmid = params.filmid;
+  let query = [userid,filmid];
+  //查
+  connection.query(sql8,query,function (err, result) {
+      if(err){
+        console.log('[SELECT ERROR] - ',err.message);
+        return;
+      }
+      
+      console.log(result);
+      //把搜索值输出
+     res.jsonp(result);
+  });
+})
+
 module.exports = router;

@@ -371,6 +371,7 @@
 				$("#collectfilms").append(div1);
 				$(".dtfy").eq(0).attr("style","display: none");
 			}
+			else{
 			let div1 = document.createElement("div");
 				div1.className = "flex-center flex-column";
 				let h1 = document.createElement("h1");
@@ -378,6 +379,7 @@
 				h1.textContent = "您收藏的电影";
 				div1.appendChild(h1);
 				$("#collectfilms").append(div1);
+			}
 			for(let i=0;i<rows;i++){
 				let div1 = document.createElement("div");
 				div1.className = "row";

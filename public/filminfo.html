@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title>Yip Tang Movie</title>
-	<link rel="shortcut icon" href="img/pic/html_16px_1210190_easyicon.net.ico" /> 
+	<link rel="shortcut icon" href="img/pic/html_16px_1210190_easyicon.net.ico" />
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- Bootstrap core CSS -->
@@ -161,8 +161,8 @@
 							<div class="row">
 								<div>
 									<p style="margin: 2px;">
-										<img id="directorimg" src="http://p0.meituan.net/movie/a2eddfa1323ff2964461855531ef55a8155434.jpg.webp@128w_170h_1e_1c"
-										 style="width: 130px;height: 170px;" />
+										<img id="directorimg" src="http://p0.meituan.net/movie/a2eddfa1323ff2964461855531ef55a8155434.jpg.webp@128w_170h_1e_1c" style="width: 130px;height: 170px;"
+										/>
 									</p>
 									<p id="directorname" style="text-align: center">什里·那拉扬·辛</p>
 								</div>
@@ -283,7 +283,7 @@
 								</div>
 							</div>
 							<div class="card-body">
-								<div class="card" >
+								<div class="card">
 									<!-- Card content -->
 									<div class="card-body">
 
@@ -429,45 +429,45 @@
 		</div>
 	</div>
 
-		<!-- 短评点评模态框 -->
-		<div class="modal fade" id="modal_dp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-notify modal-success" role="document">
-				<!--Content-->
-				<div class="modal-content">
-					<!--Header-->
-					<div class="modal-header primary-color">
-						<p class="heading lead">短评点评</p>
-	
-						<button id="modal-close" type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true" class="white-text">&times;</span>
-						</button>
+	<!-- 短评点评模态框 -->
+	<div class="modal fade" id="modal_dp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-notify modal-success" role="document">
+			<!--Content-->
+			<div class="modal-content">
+				<!--Header-->
+				<div class="modal-header primary-color">
+					<p class="heading lead">短评点评</p>
+
+					<button id="modal-close2" type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true" class="white-text">&times;</span>
+					</button>
+				</div>
+
+				<!--Body-->
+				<div class="modal-body">
+					<div class="text-center">
+						<i class="fa fa-tv fa-4x mb-3 animated rotateIn"></i>
 					</div>
-	
-					<!--Body-->
-					<div class="modal-body">
-						<div class="text-center">
-							<i class="fa fa-tv fa-4x mb-3 animated rotateIn"></i>
-						</div>
-						<div class="md-form">
-							<i class="fa fa-commenting prefix"></i>
-							<textarea type="text" id="yourcomment" class="form-control md-textarea" rows="3"></textarea>
-							<label for="textareaPrefix" class="">
-								<font style="vertical-align: inherit;">
-									<font style="vertical-align: inherit;">给蓝骨和尚的评价</font>
-								</font>
-							</label>
-						</div>
-					</div>
-	
-					<!--Footer-->
-					<div class="modal-footer justify-content-center">
-						<a id="pj-submit" type="button" class="btn btn-primary">提交 </a>
-						<a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">取消</a>
+					<div class="md-form">
+						<i class="fa fa-commenting prefix"></i>
+						<textarea type="text" id="submitcomment" class="form-control md-textarea" rows="3"></textarea>
+						<label for="textareaPrefix" class="">
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">给蓝骨和尚的评价</font>
+							</font>
+						</label>
 					</div>
 				</div>
-				<!--/.Content-->
+
+				<!--Footer-->
+				<div class="modal-footer justify-content-center">
+					<a id="dp-submit" type="button" class="btn btn-primary">提交 </a>
+					<a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">取消</a>
+				</div>
 			</div>
+			<!--/.Content-->
 		</div>
+	</div>
 	<!-- SCRIPTS -->
 	<!-- JQuery -->
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
@@ -478,6 +478,7 @@
 	<!-- MDB core JavaScript -->
 	<script type="text/javascript" src="js/mdb.min.js"></script>
 	<script type="text/javascript">
+		//页面初始化
 		console.log(sessionStorage.getItem("username"))
 		var filmid = sessionStorage.getItem("filmid");
 		console.log(filmid);
@@ -497,22 +498,25 @@
 		}).catch(function (error) {
 			console.log('parsing failed: ', error);
 		});
-		url = "http://127.0.0.1:3000/comment/search?"+ "filmid=" + filmid + "&userid=" + sessionStorage.getItem("userid");
-			fetch(url,{
-				method:"GET"
-			}).then(function(res){
-				return res.json();
-			}).then(function(json){
-				if(json.length == 0){
-				}
-			}).catch(function (error) {
+		//检查是否已经评论过
+		url = "http://127.0.0.1:3000/comment/search?" + "filmid=" + filmid + "&userid=" + sessionStorage.getItem("userid");
+		fetch(url, {
+			method: "GET"
+		}).then(function (res) {
+			return res.json();
+		}).then(function (json) {
+			if (json.length != 0) {
+				$("#pingjia").attr("disabled", "disabled");
+				$("#pingjia").children("i").attr("style", "color:red");
+			}
+		}).catch(function (error) {
 			console.log('parsing failed: ', error);
 		});
 		getFilmInfo(filmid);
 		function getFilmInfo(filmid) {
 			var url = "http://127.0.0.1:3000/filminfo/main?" + "filmid=" + filmid;
 			fetch(url, {
-				method: "get"
+				method: "GET"
 			}).then(function (res) {
 				return res.json();
 			}).then(function (json) {
@@ -556,7 +560,7 @@
 		function getFilmDirector(directorid) {
 			var url = "http://127.0.0.1:3000/filminfo/director?" + "director=" + directorid;
 			fetch(url, {
-				method: "get"
+				method: "GET"
 			}).then(function (res) {
 				return res.json();
 			}).then(function (json) {
@@ -571,7 +575,7 @@
 		function getFilmActors(filmid) {
 			var url = "http://127.0.0.1:3000/filminfo/actors?" + "filmid=" + filmid;
 			fetch(url, {
-				method: "get"
+				method: "GET"
 			}).then(function (res) {
 				return res.json();
 			}).then(function (json) {
@@ -624,38 +628,38 @@
 		})
 
 		//评分功能
-		$("#pj-submit").click(function(){
+		$("#pj-submit").click(function () {
 			let score = $("#yourscore").val();
 			let shortcomment = $("#yourcomment").val();
 			console.log(score);
 			console.log(shortcomment);
-			let url = "http://127.0.0.1:3000/comment/search?"+ "filmid=" + filmid + "&userid=" + sessionStorage.getItem("userid");
-			fetch(url,{
-				method:"GET"
-			}).then(function(res){
+			let url = "http://127.0.0.1:3000/comment/search?" + "filmid=" + filmid + "&userid=" + sessionStorage.getItem("userid");
+			fetch(url, {
+				method: "GET"
+			}).then(function (res) {
 				return res.json();
-			}).then(function(json){
-				if(json.length == 0){
-					let url1 = "http://127.0.0.1:3000/comment/add?"+ "filmid=" + filmid + "&userid=" + sessionStorage.getItem("userid");
-					fetch(url1,{
-						method:"POST",
+			}).then(function (json) {
+				if (json.length == 0) {
+					let url1 = "http://127.0.0.1:3000/comment/add?" + "filmid=" + filmid + "&userid=" + sessionStorage.getItem("userid");
+					fetch(url1, {
+						method: "POST",
 						headers: {
-    						'Accept': 'application/json',
-    						'Content-Type': 'application/json'
-   						},
-						body:JSON.stringify({
-							"userid":sessionStorage.getItem("userid"),
-							"filmid":filmid,
-							"score":score,
-							"evaluate":shortcomment
+							'Accept': 'application/json',
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify({
+							"userid": sessionStorage.getItem("userid"),
+							"filmid": filmid,
+							"score": score,
+							"evaluate": shortcomment
 						})
-					}).then(function(res){
+					}).then(function (res) {
 						$("#modal-close").click();
-						$("#pingjia").children("i").attr("style","color: red");
-						$("#pingjia").attr("disabled","disabled");
+						$("#pingjia").children("i").attr("style", "color: red");
+						$("#pingjia").attr("disabled", "disabled");
 					})
 				}
-				else{
+				else {
 					alert("您已经做过评价！")
 				}
 			}).catch(function (ex) {
@@ -666,67 +670,79 @@
 		//加载电影短评功能
 		//时间格式转换函数
 		function timeFormatter(value) {
-			var da = new Date(value.replace("/Date(", "").replace(")/" , "").split( "+")[0]);
+			var da = new Date(value.replace("/Date(", "").replace(")/", "").split("+")[0]);
 			return da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate() + " " + da.getHours() + ":" + da.getMinutes() + ":" + da.getSeconds();
 		}
 
-		url = "http://127.0.0.1:3000/comment/searchbyfilm?"+"filmid=" + filmid ;
-		fetch(url,{
-			method:"GET"
-		}).then(function(res){
+		url = "http://127.0.0.1:3000/comment/searchbyfilm?" + "filmid=" + filmid;
+		fetch(url, {
+			method: "GET"
+		}).then(function (res) {
 			return res.json();
-		}).then(function(json){
+		}).then(function (json) {
 			var comment = $(".filmcomment").eq(0);
-			for(let i=0;i<json.length;i++){
-				let name=json[i].username;
+			for (let i = 0; i < json.length; i++) {
+				let name = json[i].username;
 				let score = json[i].score;
 				let evaluate = json[i].evaluate;
 				let givelike = json[i].givelike;
 				let date = json[i].createdate;
 				let userid = json[i].userid;
+				let commentid = json[i].commentid;
 				let div1 = document.createElement("div");
-				div1.setAttribute("style","margin-top: 15px; border-bottom: solid black 1px;");
+				div1.setAttribute("style", "margin-top: 15px; border-bottom: solid black 1px;");
 				let h = document.createElement("h3");
 				h.textContent = name;
 				div1.appendChild(h);
 				let pj = document.createElement("div");
-				pj.className="filmcomment-pj";
-				pj.setAttribute("style","color: yellow;")
+				pj.className = "filmcomment-pj";
+				pj.setAttribute("style", "color: yellow;")
 				let ei = document.createElement("i");
-					ei.setAttribute("style","color: black;");
-					ei.textContent = timeFormatter(date);
-					pj.appendChild(ei);
+				ei.setAttribute("style", "color: black;");
+				ei.textContent = timeFormatter(date);
+				pj.appendChild(ei);
 				//添加评分的星星
-				let score1 = Math.floor(score/2);
-				let score2 = Math.round(score/2);
-				let bool = score2>score1?true:false;
-				for(let j = 0; j < score1; j++) {
+				let score1 = Math.floor(score / 2);
+				let score2 = Math.round(score / 2);
+				let bool = score2 > score1 ? true : false;
+				for (let j = 0; j < score1; j++) {
 					let ei = document.createElement("i");
 					ei.className = "fa fa-star";
 					pj.appendChild(ei);
 				}
-				if(bool){
+				if (bool) {
 					let ei = document.createElement("i");
 					ei.className = "fa fa-star-half-full";
 					pj.appendChild(ei);
 				}
-				    ei = document.createElement("i");
-					ei.textContent = score;
-					pj.appendChild(ei);
+				ei = document.createElement("i");
+				ei.textContent = score;
+				pj.appendChild(ei);
 				//结束添加评分的星星
 				let a = document.createElement("a");
-				a.className="giveAlike";
-				a.setAttribute("value",userid);
+				a.className = "giveAlike";
+				a.setAttribute("value", userid);
 				ei = document.createElement("i");
-				ei.setAttribute("style","color: black;float: right;");
-				ei.className="fa fa-thumbs-o-up";
-				ei.textContent=givelike;
+				ei.setAttribute("style", "color: black;float: right;");
+				ei.className = "fa fa-thumbs-o-up";
+				ei.textContent = givelike;
+				ei.setAttribute("id","numoflike"+commentid);
+				ei.addEventListener("click",function(){
+					let className = ei.className;
+					if(className.indexOf("fa-thumbs-up") < 0 ){
+						givelikes(commentid);
+						ei.className = "fa fa-thumbs-up";
+						let text = ei.textContent;
+						text = Number(text)+1;
+						ei.textContent = ""+text;
+					}
+				})
 				a.appendChild(ei);
 				pj.appendChild(a);
 				let div3 = document.createElement("div");
 				div3.className = "filmcomment-con";
 				let p = document.createElement("p");
-				p.textContent=evaluate;
+				p.textContent = evaluate;
 				div3.appendChild(p);
 				div1.appendChild(pj);
 				div1.appendChild(div3);
@@ -735,25 +751,33 @@
 				row.className = "row";
 
 				let tianchong = document.createElement("div");
-				tianchong.className="col-md-10";
+				tianchong.className = "col-md-10";
 				let a_dp = document.createElement("a");
-				a_dp.setAttribute("href","");
-				a_dp.setAttribute("data-toggle","modal");
-				a_dp.setAttribute("data-target","#modal_dp");
+				a_dp.setAttribute("href", "");
+				a_dp.setAttribute("data-toggle", "modal");
+				a_dp.setAttribute("data-target", "#modal_dp");
 				a_dp.textContent = "点评";
+				a_dp.setAttribute("value", commentid);
+				a_dp.addEventListener("click", function () {
+					sessionStorage.setItem("commentid", a_dp.getAttribute("value"));
+				});
 				tianchong.appendChild(a_dp);
-				
+
 				let liuyan = document.createElement("div");
 				liuyan.className = "col-md-2";
 				let a2 = document.createElement("a");
-				a2.setAttribute("data-toggle","collapse");
-				a2.setAttribute("data-parent","#accordionEx");
-				a2.setAttribute("href","#collapse"+i);
-				a2.setAttribute("aria-expanded","true");
-				a2.setAttribute("aria-controls","collapse"+i);
+				a2.setAttribute("data-toggle", "collapse");
+				a2.setAttribute("data-parent", "#accordionEx");
+				a2.setAttribute("href", "#collapse" + i);
+				a2.setAttribute("aria-expanded", "true");
+				a2.setAttribute("aria-controls", "collapse" + i);
+				a2.setAttribute("value", commentid);
+				a2.addEventListener("click", function () {
+					sessionStorage.setItem("commentid", a2.getAttribute("value"));
+				})
 				let h6 = document.createElement("h6");
 				h6.className = "mb-0";
-				h6.setAttribute("style","float:right");
+				h6.setAttribute("style", "float:right");
 				h6.textContent = "全部点评";
 				let i_rotate = document.createElement("i");
 				i_rotate.className = "fa fa-angle-down rotate-icon"
@@ -770,36 +794,119 @@
 				card.className = "card";
 				let collapse = document.createElement("div");
 				collapse.className = "collapse";
-				collapse.setAttribute("id","collapse"+i);
-				collapse.setAttribute("role","tabpanel");
-				collapse.setAttribute("aria-labelledby","headingOne");
-				collapse.setAttribute("data-parent","#accordionEx");
+				collapse.setAttribute("id", "collapse" + i);
+				collapse.setAttribute("role", "tabpanel");
+				collapse.setAttribute("aria-labelledby", "headingOne");
+				collapse.setAttribute("data-parent", "#accordionEx");
 				let card_body = document.createElement("div");
 				card_body.className = "card-body";
 
-				//展开卡中每一个留言框
-				let card2 = document.createElement("div");
-				card2.className = "card";
-				let card_body2 = document.createElement("div");
-				card_body2.className = "card-body";
-				let h4 = document.createElement("h4");
-				h4.className = "card-title";
-				let title_a = document.createElement("a");
-				title_a.textContent = "乌龟滑翔";
-				h4.appendChild(title_a);
-				let text_p = document.createElement("p");
-				text_p.className = "card-text";
-				text_p.textContent = "cscvasdfsdfdewfwef";
-				card_body2.appendChild(h4);
-				card_body2.appendChild(text_p);
-				card2.appendChild(card_body2);
-				card_body.appendChild(card2);
+				a2.addEventListener("click", function () {
+					card_body.textContent = "";
+					loadcommentcard(card_body, commentid);
+				});
 
 				collapse.appendChild(card_body);
 				card.appendChild(collapse);
 				comment.append(card);
 			}
+			initlike();
 		})
+
+
+		//添加用户间点评
+		$("#dp-submit").click(function () {
+			let userid = sessionStorage.getItem("userid");
+			let commentid = sessionStorage.getItem("commentid");
+			let content = $("#submitcomment").val();
+			let url = "http://127.0.0.1:3000/comment/addcomment?";
+			fetch(url, {
+				method: "POST",
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					"otheruserid": userid,
+					"commentid": commentid,
+					"content": content
+				})
+			}).then(function (res) {
+				$("#modal-close2").click();
+				return res;
+			}).catch(function (ex) {
+				console.log("print ex:" + ex);
+			})
+		})
+		function givelikes(commentid){
+			let url = "http://127.0.0.1:3000/comment/updatelike?" + "commentid=" + commentid+"&userid="+sessionStorage.getItem("userid");
+			fetch(url,{
+				method:"GET"
+			}).then(function(res){
+				console.log("update");
+				return;
+			}).catch(function(ex){
+				console.log("print ex:"+ex);
+			})
+		}
+		function initlike(){
+			let url = "http://127.0.0.1:3000/comment/loaduserlike?" + "userid=" + sessionStorage.getItem("userid")+"&filmid="+sessionStorage.getItem("filmid");
+			fetch(url,{
+				method:"GET"
+			}).then(function(res){
+				return res.json();
+			}).then(function(jsons){
+				for(let i=0;i<jsons.length;i++){
+					let commentid = jsons[i].commentid;
+					let strid = "numoflike"+commentid;
+					document.getElementById(strid).className = "fa fa-thumbs-up";
+				}
+			})
+		}
+
+		function loadcommentcard(card_body, commentid) {
+			console.log("loadotherscomment");
+			let url = "http://127.0.0.1:3000/comment/loadotherscomment?" + "commentid=" + commentid;
+			fetch(url, {
+				method: "GET"
+			}).then(function (res) {
+				return res.json();
+			}).then(function (jsons) {
+				if (jsons.length == 0) {
+					let card2 = document.createElement("div");
+					card2.className = "card";
+					let card_body2 = document.createElement("div");
+					card_body2.className = "card-body";
+					let text_p = document.createElement("p");
+					text_p.className = "card-text";
+					text_p.textContent = "没有点评";
+					text_p.setAttribute("style", "text-align:center")
+					card_body2.appendChild(text_p);
+					card2.appendChild(card_body2);
+					card_body.appendChild(card2);
+					return;
+				}
+				for (let i = 0; i < jsons.length; i++) {
+					let json = jsons[i];
+					let card2 = document.createElement("div");
+					card2.className = "card";
+					let card_body2 = document.createElement("div");
+					card_body2.className = "card-body";
+					let h4 = document.createElement("h4");
+					h4.className = "card-title";
+					let title_a = document.createElement("a");
+					title_a.textContent = json.username;
+					h4.appendChild(title_a);
+					let text_p = document.createElement("p");
+					text_p.className = "card-text";
+					text_p.textContent = json.content;
+					card_body2.appendChild(h4);
+					card_body2.appendChild(text_p);
+					card2.appendChild(card_body2);
+					card_body.appendChild(card2);
+				}
+			})
+		}
 	</script>
 </body>
 
