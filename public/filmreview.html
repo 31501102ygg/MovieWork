@@ -19,7 +19,7 @@
 		.searchbar {
 			margin-top: 70px;
 		}
-		
+
 		.input-group.md-form.form-sm.form-1 input {
 			border: 1px solid #bdbdbd;
 			border-top-right-radius: 0.25rem;
@@ -35,34 +35,6 @@
 		.page-footer,
 		.top-nav-collapse {
 			background-color: #4285f4;
-		}
-
-		@media (max-width: 767px) {
-			.insertimgs{
-				width:100%;
-				height: 380px;
-			}
-			.imgrow{
-				width: 80%;
-				margin-left: 10%; 
-			}
-		}
-
-		@media (min-width: 768px) and (max-width: 991px) {
-			.insertimgs{
-				width:100%;
-				height: 260px;
-			}
-		}
-
-		@media (min-width: 992px) {
-			.insertimgs{
-				width:100%;
-				height: 230px;
-			}
-			div.row {
-			margin-top: 40px;
-		}
 		}
 	</style>
 </head>
@@ -87,15 +59,15 @@
 
 				<!-- Links -->
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
+					<li class="nav-item ">
 						<a class="nav-link" href="./main1.html">热映电影
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
-					<li class="nav-item active">
+					<li class="nav-item">
 						<a class="nav-link" href="./searchfilms.html">寻找电影</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item active">
 						<a class="nav-link" href="./filmreview.html">影评</a>
 					</li>
 					<li class="nav-item">
@@ -150,93 +122,102 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="selectbar">
+	<div class="main-content">
 		<div class="container">
-			<!--Navbar-->
-			<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+			<!--<div class="row">
+					<div class="filmimg col-lg-3 row">
+						<div class="col-lg-3"></div>
+						<div class="col-lg-8 view zoom">
+							<a href="./filminfo.html"><img  src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2518852413.webp" style="width: 100%;"></a>
+						</div>
+					</div>
+				</div>-->
+			<!--News card-->
+			<div class="card mb-3 text-center hoverable">
+				<div class="card-body">
+					<!--Grid row-->
+					<div class="row">
 
-				<!-- Collapse button -->
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav2" aria-controls="basicExampleNav"
-				 aria-expanded="false" aria-label="Toggle navigation">
-					电影种类
-					<span class="navbar-toggler-icon"></span>
-				</button>
+						<!--Grid column-->
+						<div class="col-md-2 offset-md-1 mx-3 my-3">
+							<!--Featured image-->
+							<div class="view overlay col-md-11">
+								<img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2518852413.webp" class="img-fluid" alt="Sample image for first version of blog listing">
+								<a href="./filminfo.html">
+									<div class="mask rgba-white-slight"></div>
+								</a>
+							</div>
+						</div>
+						<!--Grid column-->
 
-				<!-- Collapsible content -->
-				<div class="collapse navbar-collapse" id="basicExampleNav2">
+						<!--Grid column-->
+						<div class="col-md-8 text-left ml-3 mt-3">
+							<!--Excerpt-->
+							<div class="row">
+								<div class="col-md-2">
+									<h6 class="font-bold pb-1">
+										<i class="fa fa-user"></i> 乌龟滑翔</h6>
+								</div>
+								<span class="col-md-2">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</span>
+								<i>2018-06-09 22:16:58</i>
+							</div>
+							<a href="">
+								<h4 class="mb-4">
+									<strong>只要你有闹钟，10种简单杀灭怪物的办法</strong>
+								</h4>
+							</a>
+							<div class="shortreview ">
+								<p>
+									1. 找个高楼，一根长杆子，挂上个闹钟 2. 挖个深坑，埋点铁签子，扔个闹钟进去 3. 倒上汽油，中心放个闹钟，点把火 4. 埋好地雷，放个闹钟 5. 做个大号铁刺猬，里面放个闹钟 6. 找个高点的地方，扔个闹钟下去，怪物来了扔个手雷下去 7.
+									每人一把枪，找个单入口隧道，堵在入口处，吸引来怪物一枪一个 8. 做个吊网陷阱，扔个闹钟，抓住了之后随便怎么搞死 9. 找个大号硫酸桶， 贴个闹钟在外面 10. 做个大捕兽夹子，里面放个闹钟 这么严重的剧情bug下，实在没法欣赏这部电影.......
+								</p>
+							</div>
+							<div class="longreview " style="display: none;">
+								<pre>
+1. 找个高楼，一根长杆子，挂上个闹钟
 
-					<!-- Links -->
-					<ul id="typetag" class="navbar-nav mr-auto">
-						<li class="nav-item active">
-							<a class="nav-link" value="">全部</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" value="喜剧">喜剧</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" value="动作">动作</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" value="爱情">爱情</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" value="剧情">剧情</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" value="动画">动画</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" value="科幻">科幻</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" value="惊悚">惊悚</a>
-						</li>
-					</ul>
+2. 挖个深坑，埋点铁签子，扔个闹钟进去
 
+3. 倒上汽油，中心放个闹钟，点把火
+
+4. 埋好地雷，放个闹钟
+
+5. 做个大号铁刺猬，里面放个闹钟
+
+6. 找个高点的地方，扔个闹钟下去，怪物来了扔个手雷下去
+
+7. 每人一把枪，找个单入口隧道，堵在入口处，吸引来怪物一枪一个
+
+8. 做个吊网陷阱，扔个闹钟，抓住了之后随便怎么搞死
+
+9. 找个大号硫酸桶， 贴个闹钟在外面
+
+10. 做个大捕兽夹子，里面放个闹钟
+
+这么严重的剧情bug下，实在没法欣赏这部电影.......
+               </pre>
+
+							</div>
+							<a id="dropdownorup" class="mb-0">
+								显示全部
+								<i class="fa fa-angle-down rotate-icon"></i>
+							</a>
+						</div>
+						<!--Grid column-->
+					</div>
+					<!--Grid row-->
 				</div>
-
-				<!-- Collapsible content -->
-
-			</nav>
-			<!--/.Navbar-->
+			</div>
+			<!--News card-->
 		</div>
 	</div>
 	<!-- Start your project here-->
-	<div class="mainFilms">
-		<div id="mainFilms" class="container"></div>
-	</div>
-
-	<div class="dtfy">
-		<div class="container">
-
-			<nav class="flex-center ">
-				<ul class="pagination pg-blue pagination-circle pagination-lg ">
-
-					<!--Arrow left-->
-					<li class="page-item hotfilmsfy">
-						<a class="page-link" aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-							<span class="sr-only">Previous</span>
-						</a>
-					</li>
-
-					<!--Numbers-->
-					<li class="page-item hotfilmsfy active">
-						<a class="page-link">1</a>
-					</li>
-
-					<!--Arrow right-->
-					<li class="page-item hotfilmsfy">
-						<a class="page-link" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-							<span class="sr-only">Next</span>
-						</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</div>
 
 	<footer class="page-footer text-center font-small mt-4 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
 
@@ -329,102 +310,32 @@
 	<script type="text/javascript" src="js/mdb.min.js"></script>
 
 	<script type="text/javascript">
-		sessionStorage.setItem("tag", "");//设置标签为全部null
-		var url = " http://127.0.0.1:3000/loadfilms/bytag?" + "tag=" + sessionStorage.getItem("tag");
-		loadfilms(url);
-		//给种类中的标签添加click事件
-		var aUnderLi = $("#typetag").find("a");
-		aUnderLi.click(function () {
-			$(".active").eq(1).removeClass("active");
-			sessionStorage.setItem("tag", $(this).attr("value"));
-			//根据标签加载电影
-			let url = " http://127.0.0.1:3000/loadfilms/bytag?" + "tag=" + sessionStorage.getItem("tag");
-			emptyFilms();
-			loadfilms(url);
-			$(this).parent().addClass("active");
+		console.log(sessionStorage.getItem("username")) ;
+		$("#navbarDropdownMenuLink").html('<i class="fa fa-user"></i>' + sessionStorage.getItem("username"));
+
+		//影评内容收缩展开
+		$("#dropdownorup").click(function(){
+			if($(this).children("i").eq(0).hasClass("fa-angle-down")){
+				$(".shortreview").eq(0).attr("style","display:none");
+				$(".longreview").eq(0).attr("style","display:block");
+				$(this).text("收起");
+				let i = document.createElement("i");
+				i.className = "fa fa-angle-up rotate-icon";
+				$(this).append(i);
+				// $(this).children("i").eq(0).removeClass("fa-angle-down");
+				// $(this).children("i").eq(0).addClass("fa-angle-up");
+			}
+			else{
+				$(".longreview").eq(0).attr("style","display:none");
+				$(".shortreview").eq(0).attr("style","display:block");
+				$(this).text("显示全部");
+				let i = document.createElement("i");
+				i.className = "fa fa-angle-down rotate-icon";
+				$(this).append(i);
+				// $(this).children("i").eq(0).removeClass("fa-angle-up");
+				// $(this).children("i").eq(0).addClass("fa-angle-down");
+			}
 		})
-
-		//搜索电影功能
-		$("#basic-text1").click(function(){
-				let input = $("#sInput").val();
-				console.log(input);
-				let url = " http://127.0.0.1:3000/loadfilms/search?" + "input=" + input;
-				emptyFilms();
-				loadfilms(url);
-		})
-
-		function emptyFilms() {
-			$("#mainFilms").empty();
-		}
-		function loadfilms(url) {
-			fetch(url, {
-				method: "GET"
-			}).then(function (res) {
-				return res.json();
-			}).then(function (jsons) {
-				var length = jsons.length;
-				var rows = Math.ceil(length / 6);
-				for (let i = 0; i < rows; i++) {
-					let row = document.createElement("div");
-					console.log(row);
-					row.className = "row";
-					if (length > 6) {
-						length = length - 6;
-						for (let j = 0; j < 6; j++) {
-							let info = jsons[i * 6 + j];
-							let col = createOneFilmCard(info);
-							row.appendChild(col);
-						}
-					}
-					else {
-						for (let j = 0; j < length; j++) {
-							let info = jsons[i * 6 + j];
-							let col = createOneFilmCard(info);
-							row.appendChild(col);
-						}
-					}
-					$("#mainFilms").append(row);
-				}
-			})
-		}
-
-		function createOneFilmCard(info) {
-			let col = document.createElement("div");
-			col.className = "imgrow col-md-4 col-lg-2 mb-4";
-			let card = document.createElement("div");
-			card.className = "card hoverable";
-			let view = document.createElement("div");
-			view.className = "view zoom";
-			let img = document.createElement("img");
-			img.className="insertimgs";
-			img.setAttribute("src", info.imghref);
-			img.setAttribute("style", " border-top-left-radius:3px; border-top-right-radius:3px;");
-			let a = document.createElement("a");
-			a.setAttribute("href", "./filminfo.html");
-			a.setAttribute("value", info.filmid);
-			a.addEventListener("click",function(){
-				sessionStorage.setItem("filmid",a.getAttribute("value"));
-			})
-			let div = document.createElement("div");
-			div.className = "mask rgba-white-slight waves-effect waves-light";
-			a.appendChild(div);
-			view.appendChild(img);
-			view.appendChild(a);
-			card.appendChild(view);
-
-			let body = document.createElement("div");
-			body.className = "card-body";
-			body.setAttribute("style","padding:10px")
-			let p = document.createElement("p");
-			p.className = "card-title";
-			p.setAttribute("style", "text-align: center; height:50px; ")
-			p.textContent = info.filmname;
-			body.appendChild(p);
-			card.appendChild(body);
-
-			col.appendChild(card);
-			return col;
-		}
 	</script>
 </body>
 
