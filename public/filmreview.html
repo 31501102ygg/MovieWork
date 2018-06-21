@@ -118,104 +118,12 @@
 						<i class="fa fa-search text-white" aria-hidden="true"></i>
 					</span>
 				</div>
-				<input id="sInput" class="form-control my-0 py-1 col-md-6 col-lg-4" type="text" placeholder="电影搜索" aria-label="Search">
+				<input id="sInput" class="form-control my-0 py-1 col-md-6 col-lg-4" type="text" placeholder="影评搜索" aria-label="Search">
 			</div>
 		</div>
 	</div>
 	<div class="main-content">
-		<div class="container">
-			<!--<div class="row">
-					<div class="filmimg col-lg-3 row">
-						<div class="col-lg-3"></div>
-						<div class="col-lg-8 view zoom">
-							<a href="./filminfo.html"><img  src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2518852413.webp" style="width: 100%;"></a>
-						</div>
-					</div>
-				</div>-->
-			<!--News card-->
-			<div class="card mb-3 text-center hoverable">
-				<div class="card-body">
-					<!--Grid row-->
-					<div class="row">
-
-						<!--Grid column-->
-						<div class="col-md-2 offset-md-1 mx-3 my-3">
-							<!--Featured image-->
-							<div class="view overlay col-md-11">
-								<img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2518852413.webp" class="img-fluid" alt="Sample image for first version of blog listing">
-								<a href="./filminfo.html">
-									<div class="mask rgba-white-slight"></div>
-								</a>
-							</div>
-						</div>
-						<!--Grid column-->
-
-						<!--Grid column-->
-						<div class="col-md-8 text-left ml-3 mt-3">
-							<!--Excerpt-->
-							<div class="row">
-								<div class="col-md-2">
-									<h6 class="font-bold pb-1">
-										<i class="fa fa-user"></i> 乌龟滑翔</h6>
-								</div>
-								<span class="col-md-2">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-								</span>
-								<i>2018-06-09 22:16:58</i>
-							</div>
-							<a href="">
-								<h4 class="mb-4">
-									<strong>只要你有闹钟，10种简单杀灭怪物的办法</strong>
-								</h4>
-							</a>
-							<div class="shortreview ">
-								<p>
-									1. 找个高楼，一根长杆子，挂上个闹钟 2. 挖个深坑，埋点铁签子，扔个闹钟进去 3. 倒上汽油，中心放个闹钟，点把火 4. 埋好地雷，放个闹钟 5. 做个大号铁刺猬，里面放个闹钟 6. 找个高点的地方，扔个闹钟下去，怪物来了扔个手雷下去 7.
-									每人一把枪，找个单入口隧道，堵在入口处，吸引来怪物一枪一个 8. 做个吊网陷阱，扔个闹钟，抓住了之后随便怎么搞死 9. 找个大号硫酸桶， 贴个闹钟在外面 10. 做个大捕兽夹子，里面放个闹钟 这么严重的剧情bug下，实在没法欣赏这部电影.......
-								</p>
-							</div>
-							<div class="longreview " style="display: none;">
-								<pre>
-1. 找个高楼，一根长杆子，挂上个闹钟
-
-2. 挖个深坑，埋点铁签子，扔个闹钟进去
-
-3. 倒上汽油，中心放个闹钟，点把火
-
-4. 埋好地雷，放个闹钟
-
-5. 做个大号铁刺猬，里面放个闹钟
-
-6. 找个高点的地方，扔个闹钟下去，怪物来了扔个手雷下去
-
-7. 每人一把枪，找个单入口隧道，堵在入口处，吸引来怪物一枪一个
-
-8. 做个吊网陷阱，扔个闹钟，抓住了之后随便怎么搞死
-
-9. 找个大号硫酸桶， 贴个闹钟在外面
-
-10. 做个大捕兽夹子，里面放个闹钟
-
-这么严重的剧情bug下，实在没法欣赏这部电影.......
-               </pre>
-
-							</div>
-							<a id="dropdownorup" class="mb-0">
-								显示全部
-								<i class="fa fa-angle-down rotate-icon"></i>
-							</a>
-						</div>
-						<!--Grid column-->
-					</div>
-					<!--Grid row-->
-				</div>
-			</div>
-			<!--News card-->
-		</div>
+		<div class="container"></div>
 	</div>
 	<!-- Start your project here-->
 
@@ -312,30 +220,191 @@
 	<script type="text/javascript">
 		console.log(sessionStorage.getItem("username")) ;
 		$("#navbarDropdownMenuLink").html('<i class="fa fa-user"></i>' + sessionStorage.getItem("username"));
-
-		//影评内容收缩展开
-		$("#dropdownorup").click(function(){
-			if($(this).children("i").eq(0).hasClass("fa-angle-down")){
-				$(".shortreview").eq(0).attr("style","display:none");
-				$(".longreview").eq(0).attr("style","display:block");
-				$(this).text("收起");
+		//加载影评
+		loadReview();
+		//搜索功能
+		$("#basic-text1").click(function(){
+			let filmname = $("#sInput").val();
+			let url = "http://127.0.0.1:3000/filmreviews/searchfilmreviews?"+"filmname="+filmname;
+			fetch(url,{
+				method:"GET"
+			}).then(function(res){
+				return res.json();
+			}).then(function(jsons){
+				if(jsons.length==0){
+					if($(".main-content").eq(0).children("div.container").eq(0).text()!='')
+						return ;
+					loadReview();
+				}
+				$(".main-content").eq(0).children("div.container").eq(0).empty();
+				for(let i=0;i<jsons.length;i++){
+					let info = jsons[i];
+					let card = createReviewElement(info);
+					console.log(card);
+					$(".main-content").eq(0).children("div.container").eq(0).append(card);
+				}
+			}).catch(function(ex){
+				console.log("搜索出错："+ex);
+			})
+		})
+		
+		//加载影评函数
+		function loadReview(){
+			let url = "http://127.0.0.1:3000/filmreviews/loadfilmreviews";
+			fetch(url,{
+				method:"GET"
+			}).then(function(res){
+				return res.json();
+			}).then(function(jsons){
+				console.log(jsons);
+				for(let i=0;i<jsons.length;i++){
+					let info = jsons[i];
+					let card = createReviewElement(info);
+					$(".main-content").eq(0).children("div.container").eq(0).append(card);
+				}
+			}).catch(function(ex){
+				console.log("print ex: "+ex);
+			})
+		}
+		function createReviewElement(info){
+			let card = document.createElement("div");
+			card.className = "card mb-3 text-center hoverable";
+			let card_body = document.createElement("div");
+			card_body.className = "card-body";
+			let row = document.createElement("div");
+			row.className = "row";
+			//电影图片位置
+			let col = document.createElement("div");//容器
+			col.className = "col-md-2 offset-md-1 mx-3 my-3";
+			let view = document.createElement("div");
+			view.className = "view overlay col-md-11";
+			let img = document.createElement("img");
+			img.setAttribute("src",info.imghref);
+			img.setAttribute("alt","电影图片");
+			img.className = "img-fluid";
+			let a = document.createElement("a");
+			a.setAttribute("href","./filminfo.html");
+			let mask = document.createElement("div");
+			mask.className  = "mask rgba-white-slight";
+			a.appendChild(mask);
+			view.appendChild(img);
+			view.appendChild(a);
+			col.appendChild(view);
+			row.appendChild(col);
+			//影评信息
+			// card.appendChild(row);
+			// return card;
+				//基本信息
+			col = document.createElement("div");
+			col.className = "col-md-8 text-left ml-3 mt-3";
+			let row_info = document.createElement("div");
+			row_info.className = "row";
+			let colmd = document.createElement("div");
+			colmd.className = "col-md-4";
+			let h6 = document.createElement("h6");
+			h6.className = "font-bold pb-1";
+			h6.innerHTML = '<i class="fa fa-user"></i> '+info.username;
+			let span_scoreStar = createScoreStar(info.score);
+			let time = document.createElement("div");
+			time.className = "col-md-6";
+			let i = document.createElement("i");
+			i.textContent = timeFormatter(info.createdate);
+			time.appendChild(i);
+			colmd.appendChild(h6);
+			row_info.appendChild(colmd);
+			row_info.appendChild(span_scoreStar);
+			row_info.appendChild(time);
+			col.appendChild(row_info);
+				//标题
+			a = document.createElement("a");
+			let h4 = document.createElement("h4");
+			h4.className = "mb-4";
+			let strong = document.createElement("strong");
+			strong.textContent = info.title;
+			h4.appendChild(strong);
+			a.appendChild(h4);
+			col.appendChild(a);
+				//缩略影评
+			let shortreview = document.createElement("div");
+			shortreview.className = "shortreview";
+			shortreview.setAttribute("id","short"+info.filmid);
+			let p = document.createElement("p");
+			p.textContent = info.shortreview;
+			shortreview.appendChild(p);
+			col.appendChild(shortreview);
+				//完整影评
+			let longreview = longReviewToP(info);
+			col.appendChild(longreview);
+				//展开按钮
+			a = document.createElement("a");
+			a.className = "dropdownorup mb-0";
+			a.setAttribute("value",info.filmid);
+			a.innerHTML = '显示全部'+'<i class="fa fa-angle-down rotate-icon"></i>'
+				//添加click事件
+			a.addEventListener("click",function(){
+				let filmid = this.getAttribute("value");
+			if(this.children[0].className.indexOf("fa-angle-down")>0){
+				$("#short"+filmid).eq(0).attr("style","display:none");
+				$("#long"+filmid).eq(0).attr("style","display:block");
+				this.textContent = "收起";
 				let i = document.createElement("i");
 				i.className = "fa fa-angle-up rotate-icon";
-				$(this).append(i);
-				// $(this).children("i").eq(0).removeClass("fa-angle-down");
-				// $(this).children("i").eq(0).addClass("fa-angle-up");
+				this.appendChild(i);
 			}
 			else{
-				$(".longreview").eq(0).attr("style","display:none");
-				$(".shortreview").eq(0).attr("style","display:block");
-				$(this).text("显示全部");
+				$("#long"+filmid).eq(0).attr("style","display:none");
+				$("#short"+filmid).eq(0).attr("style","display:block");
+				this.textContent = "查看全部";
 				let i = document.createElement("i");
 				i.className = "fa fa-angle-down rotate-icon";
-				$(this).append(i);
-				// $(this).children("i").eq(0).removeClass("fa-angle-up");
-				// $(this).children("i").eq(0).addClass("fa-angle-down");
+				this.appendChild(i);
 			}
-		})
+			})
+			col.appendChild(a);
+			
+			row.appendChild(col);
+			card_body.appendChild(row);
+			card.appendChild(card_body);
+			return card;
+		}
+		function createScoreStar(score){
+			let span = document.createElement("span");
+			span.className = "col-md-2";
+			span.setAttribute("style","color:#fdd835 ")
+			for(let i=0;i<score;i++){
+				let icon = document.createElement("i");
+				icon.className = "fa fa-star";
+				span.appendChild(icon);
+			}
+			for(let i=0;i<5-score;i++){
+				let icon = document.createElement("i");
+				icon.className = "fa fa-star-o";
+				span.appendChild(icon);
+			}
+			return span;
+		}
+		function longReviewToP(info){
+			let longreview = document.createElement("div");
+			longreview.className = "longreview";
+			longreview.setAttribute("id","long"+info.filmid);
+			longreview.setAttribute("style","display: none;");
+			//text分段落
+			let text = info.longreview;
+			var paragraphs = text.split(/[\n]+/g);
+			//标签p填充段落
+			for(let i=0;i<paragraphs.length;i++){
+				let p = document.createElement("p");
+				p.textContent = paragraphs[i];
+				longreview.appendChild(p);
+			}
+			return longreview;
+		}
+
+		//时间格式转换函数
+		function timeFormatter(value) {
+			var da = new Date(value.replace("/Date(", "").replace(")/", "").split("+")[0]);
+			return da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate() + " " + da.getHours() + ":" + da.getMinutes() + ":" + da.getSeconds();
+		}
 	</script>
 </body>
 

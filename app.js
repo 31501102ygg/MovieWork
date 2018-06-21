@@ -13,6 +13,8 @@ var loadFilmsbyindexRouter = require("./routes/loadfilmsbyindex");
 var getFilmInfoRouter = require("./routes/getfilminfo");
 var collectRouter = require('./routes/collect');
 var commentRouter = require('./routes/shortcomment');
+var reviewsRouter = require('./routes/filmReviews');
+
 var app = express();
 
 //cors
@@ -49,6 +51,7 @@ app.use('/loadfilmsbyindex',loadFilmsbyindexRouter);
 app.use('/filminfo',getFilmInfoRouter);
 app.use('/collect',collectRouter);
 app.use('/comment',commentRouter);
+app.use('/filmreviews',reviewsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
