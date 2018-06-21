@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Yip Tang Movie</title>
+	<link rel="shortcut icon" href="img/pic/html_16px_1210190_easyicon.net.ico" /> 
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="css/mdb.min.css" rel="stylesheet">
+	<!-- Your custom styles (optional) -->
+	<link href="css/style.css" rel="stylesheet">
+
+	<style type="text/css">
+		.main-info {
+			margin-top: 70px;
+			background-image: url("http://ms0.meituan.net/mywww/banner_bg.f7fd103e3b8c16b6f449cce43fc57f45.png");
+		}
+
+		.film-textinfo {
+			color: white;
+		}
+
+		#filmname {
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+
+		.page-footer,
+		.top-nav-collapse {
+			background-color: #4285f4;
+		}
+	</style>
+</head>
+
+<body>
+	<!--Navbar-->
+	<nav class="navbar navbar-expand-lg navbar-dark primary-color fixed-top scrolling-navbar">
+		<div class="container">
+			<!-- Navbar brand -->
+			<a class="navbar-brand" href="#">
+				<img src="img/pic/logo.png">
+			</a>
+
+			<!-- Collapse button -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+			 aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<!-- Collapsible content -->
+			<div class="collapse navbar-collapse" id="basicExampleNav">
+
+				<!-- Links -->
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="./main1.html">热映电影
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./searchfilms.html">寻找电影</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">影评</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./personcollect.html">个人收藏</a>
+					</li>
+					<!-- Dropdown -->
+					<!--<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+						<div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+							<a class="dropdown-item" href="#">Action</a>
+							<a class="dropdown-item" href="#">Another action</a>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>-->
+
+				</ul>
+				<!-- Links -->
+				<ul class="navbar-nav mr-auto nav-flex-icons">
+					<li class="nav-item">
+						<a class="nav-link waves-effect waves-light" href="#">
+							<i class="fa fa-envelope"></i> 联系我们</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link waves-effect waves-light" href="#">
+							<i class="fa fa-gear"></i> 设置</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+						 aria-expanded="true">
+							<i class="fa fa-user"></i> 用户名称
+						</a>
+						<div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink">
+							<a class="dropdown-item waves-effect waves-light" href="#">我的账号</a>
+							<a class="dropdown-item waves-effect waves-light" href="#">退出</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- Collapsible content -->
+		</div>
+	</nav>
+	<!--/.Navbar-->
+
+	<!--主要信息区-->
+	<div class="main-info">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<img id="filmimg" src="http://p1.meituan.net/movie/899b0a8c57fc44e93e83b9f0dae649f1767221.jpg" style="width: 200px;height: 300px"
+					/>
+				</div>
+				<div class="film-textinfo col-md-6 col-lg-4">
+					<h1 id="filmname">厕所英雄</h1>
+					<p id="filmtype">剧情、爱情</p>
+					<p id="filmcountryandtime">印度/2018</p>
+					<p>
+						<a id="filmscore" style="color: yellow;"></a>
+					</p>
+					<button id="shoucang" type="button" class="btn btn-primary" style="margin-left: 0;">
+						<i class="fa fa-heart"></i>
+						收藏
+					</button>
+					<button id="pingjia" type="button" class="btn btn-primary" data-toggle="modal" data-target="#centralModalSuccess">
+						<i class="fa fa-star"></i>
+						评分
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="introduce" style="margin-top: 10px;">
+		<div class="container">
+			<div class="col-lg-9">
+				<div class="row" style="border-bottom: solid black 1px;">
+					<h3>介绍</h3>
+				</div>
+				<div class="row" style="margin-top: 30px;">
+					<div>
+						<h4>剧情介绍</h4>
+						<p id="juqing">为改变命运而娶了一头牛作为妻子的Keshav（阿克谢·库玛尔 饰）与Jaya（布米·佩德卡尔 饰）偶遇并一见钟情，两人克服种种困难，终于结为夫妻。嫁给Kesha后，Jaya发现家里没有厕所，所有女性只能在野外方便，感觉遭到羞辱的Jaya决定用“离婚”进行抗争。Keshav从开始的不理解，到后来与Jaya一起对抗来自家庭、宗教、国家的阻力最终获得成功。</p>
+					</div>
+				</div>
+				<div id="actors" style="margin-top: 30px;">
+					<div class="row">
+						<h4>演职人员</h4>
+					</div>
+					<div class="actorstexttable row">
+						<div class="col-lg-3">
+							<div class="row">
+								<p>导演</p>
+							</div>
+							<div class="row">
+								<div>
+									<p style="margin: 2px;">
+										<img id="directorimg" src="http://p0.meituan.net/movie/a2eddfa1323ff2964461855531ef55a8155434.jpg.webp@128w_170h_1e_1c"
+										 style="width: 130px;height: 170px;" />
+									</p>
+									<p id="directorname" style="text-align: center">什里·那拉扬·辛</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-9">
+							<div class="row">
+								<p>演员</p>
+							</div>
+							<div class="row">
+								<div class="actor">
+									<p style="margin: 2px;">
+										<img src="http://p0.meituan.net/movie/3a65faa48032a2b289f4f788a202cb16153664.jpg.webp@128w_170h_1e_1c" style="width: 130px;height: 170px;"
+										/>
+									</p>
+									<p style="text-align: center">阿克谢·库玛尔</p>
+								</div>
+								<div class="actor">
+									<p style="margin: 2px;">
+										<img src="http://p0.meituan.net/movie/a4e90fbbbe5c6865a0caee9fa9e3ae0e128701.jpg.webp@128w_170h_1e_1c" style="width: 130px;height: 170px;"
+										/>
+									</p>
+									<p style="text-align: center">阿克谢·库玛尔</p>
+								</div>
+								<div class="actor">
+									<p style="margin: 2px;">
+										<img src="http://p1.meituan.net/movie/6338cd9d74201d3e149f40a41bbfcb6e32558.jpg.webp@128w_170h_1e_1c" style="width: 130px;height: 170px;"
+										/>
+									</p>
+									<p style="text-align: center">阿克谢·库玛尔</p>
+									<!--<p style="margin: 2px;"><img src="http://p0.meituan.net/movie/818e49cd6a6599afd46ae7b04e187dee166650.jpg.webp@128w_170h_1e_1c" /></p>-->
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="filmcomment" style="margin-top: 30px;">
+					<div class="row">
+						<h4>电影短评</h4>
+					</div>
+					<div style="margin-top: 15px; border-bottom: solid black 1px;">
+						<h3>蓝骨和尚</h3>
+						<div class="filmcomment-pj" style="color: yellow;">
+							<i style="color: black;">2018-06-12</i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<a>
+								<i style="color: black;float: right;" class="fa fa-thumbs-o-up">128</i>
+							</a>
+						</div>
+						<div class="filmcomment-con">
+							<p>印度也拍出了改变国家的电影，虽然是在电影里，但也比国内的有勇气。slogan是“一场关于厕所的革命”一点不夸张，从一对夫妻上升到一个家庭一个县直到一个国家，以修建厕所这样简单的问题挑战一个延续1700年观念，居然透露出一丝丝荒诞。这类电影在印度拍并不比国内容易，但不找权宜之计而是直接面对，这点却是艺术家最珍贵的初心。</p>
+						</div>
+					</div>
+					<div style="margin-top: 15px; border-bottom: solid black 1px;">
+						<h3>蓝骨和尚</h3>
+						<div class="filmcomment-pj" style="color: yellow;">
+							<i style="color: black;">2018-06-12</i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<a>
+								<i style="color: black;float: right;" class="fa fa-thumbs-o-up">128</i>
+							</a>
+						</div>
+						<div class="filmcomment-con">
+							<p>印度也拍出了改变国家的电影，虽然是在电影里，但也比国内的有勇气。slogan是“一场关于厕所的革命”一点不夸张，从一对夫妻上升到一个家庭一个县直到一个国家，以修建厕所这样简单的问题挑战一个延续1700年观念，居然透露出一丝丝荒诞。这类电影在印度拍并不比国内容易，但不找权宜之计而是直接面对，这点却是艺术家最珍贵的初心。</p>
+						</div>
+						<div class="row">
+							<div class="col-md-10"></div>
+							<div class="col-md-2">
+								<a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+									<h6 class="mb-0" style="float:right">
+										留言
+										<i class="fa fa-angle-down rotate-icon"></i>
+									</h6>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<!-- Card body -->
+						<div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordionEx">
+							<div class="card-body">
+								<div class="card">
+									<!-- Card content -->
+									<div class="card-body">
+
+										<!-- Title -->
+										<h4 class="card-title">
+											<a>Card title</a>
+										</h4>
+										<!-- Text -->
+										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="card">
+									<!-- Card content -->
+									<div class="card-body">
+
+										<!-- Title -->
+										<h4 class="card-title">
+											<a>Card title</a>
+										</h4>
+										<!-- Text -->
+										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="card" >
+									<!-- Card content -->
+									<div class="card-body">
+
+										<!-- Title -->
+										<h4 class="card-title">
+											<a>Card title</a>
+										</h4>
+										<!-- Text -->
+										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="margin-top: 15px;">
+						<h3>蓝骨和尚</h3>
+						<div class="filmcomment-pj" style="color: yellow;">
+							<i style="color: black;">2018-06-12</i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<a>
+								<i style="color: black;float: right;" class="fa fa-thumbs-o-up">128</i>
+							</a>
+						</div>
+						<div class="filmcomment-con">
+							<p>印度也拍出了改变国家的电影，虽然是在电影里，但也比国内的有勇气。slogan是“一场关于厕所的革命”一点不夸张，从一对夫妻上升到一个家庭一个县直到一个国家，以修建厕所这样简单的问题挑战一个延续1700年观念，居然透露出一丝丝荒诞。这类电影在印度拍并不比国内容易，但不找权宜之计而是直接面对，这点却是艺术家最珍贵的初心。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<footer class="page-footer text-center font-small mt-4 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+
+		<!--Call to action-->
+		<div class="pt-4">
+			<a class="btn btn-outline-white waves-effect waves-light" href="https://mdbootstrap.com/getting-started/" target="_blank"
+			 role="button">
+				<font style="vertical-align: inherit;">
+					<font style="vertical-align: inherit;">下载MDB
+					</font>
+				</font>
+				<i class="fa fa-download ml-2"></i>
+			</a>
+			<a class="btn btn-outline-white waves-effect waves-light" href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank"
+			 role="button">
+				<font style="vertical-align: inherit;">
+					<font style="vertical-align: inherit;">开始免费教程
+					</font>
+				</font>
+				<i class="fa fa-graduation-cap ml-2"></i>
+			</a>
+		</div>
+		<!--/.Call to action-->
+
+		<hr class="my-4">
+
+		<!-- Social icons -->
+		<div class="pb-4">
+			<a href="https://www.facebook.com/mdbootstrap" target="_blank">
+				<i class="fa fa-facebook mr-3"></i>
+			</a>
+
+			<a href="https://twitter.com/MDBootstrap" target="_blank">
+				<i class="fa fa-twitter mr-3"></i>
+			</a>
+
+			<a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
+				<i class="fa fa-youtube mr-3"></i>
+			</a>
+
+			<a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
+				<i class="fa fa-google-plus mr-3"></i>
+			</a>
+
+			<a href="https://dribbble.com/mdbootstrap" target="_blank">
+				<i class="fa fa-dribbble mr-3"></i>
+			</a>
+
+			<a href="https://pinterest.com/mdbootstrap" target="_blank">
+				<i class="fa fa-pinterest mr-3"></i>
+			</a>
+
+			<a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
+				<i class="fa fa-github mr-3"></i>
+			</a>
+
+			<a href="http://codepen.io/mdbootstrap/" target="_blank">
+				<i class="fa fa-codepen mr-3"></i>
+			</a>
+		</div>
+		<!-- Social icons -->
+
+		<!--Copyright-->
+		<div class="footer-copyright py-3">
+			<font style="vertical-align: inherit;">
+				<font style="vertical-align: inherit;">
+					©2018版权所有：
+				</font>
+			</font>
+			<a href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank">
+				<font style="vertical-align: inherit;">
+					<font style="vertical-align: inherit;">Yip&amp;Tang </font>
+				</font>
+			</a>
+		</div>
+		<!--/.Copyright-->
+
+	</footer>
+	<!--主要信息区-->
+	<!-- /Start your project here-->
+	<!-- Central Modal Medium Success -->
+	<div class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-notify modal-success" role="document">
+			<!--Content-->
+			<div class="modal-content">
+				<!--Header-->
+				<div class="modal-header primary-color">
+					<p class="heading lead">评分</p>
+
+					<button id="modal-close" type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true" class="white-text">&times;</span>
+					</button>
+				</div>
+
+				<!--Body-->
+				<div class="modal-body">
+					<div class="text-center">
+						<i class="fa fa-tv fa-4x mb-3 animated rotateIn"></i>
+					</div>
+					<div class="md-form">
+						<!-- Default input -->
+						<i class="fa fa-pencil prefix"></i>
+						<label for="exampleForm2">评分(10以内)</label>
+						<input type="text" id="yourscore" class="form-control">
+					</div>
+					<div class="md-form">
+						<i class="fa fa-commenting prefix"></i>
+						<textarea type="text" id="yourcomment" class="form-control md-textarea" rows="3"></textarea>
+						<label for="textareaPrefix" class="">
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">电影短评</font>
+							</font>
+						</label>
+					</div>
+				</div>
+
+				<!--Footer-->
+				<div class="modal-footer justify-content-center">
+					<a id="pj-submit" type="button" class="btn btn-primary">提交 </a>
+					<a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">取消</a>
+				</div>
+			</div>
+			<!--/.Content-->
+		</div>
+	</div>
+	<!-- SCRIPTS -->
+	<!-- JQuery -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="js/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="js/mdb.min.js"></script>
+	<script type="text/javascript">
+		console.log(sessionStorage.getItem("username"))
+		var filmid = sessionStorage.getItem("filmid");
+		console.log(filmid);
+		$("#navbarDropdownMenuLink").html('<i class="fa fa-user"></i>' + sessionStorage.getItem("username"));
+		var url = "http://127.0.0.1:3000/collect/search?" + "filmid=" + filmid + "&userid=" + sessionStorage.getItem("userid");
+		fetch(url, {
+			method: "GET"
+		}).then(function (res) {
+			return res.json();
+		}).then(function (json) {
+			if (json.length == 0) {
+				$("#shoucang").children("i").attr("style", "color: white");
+			}
+			else {
+				$("#shoucang").children("i").attr("style", "color: red");
+			}
+		}).catch(function (error) {
+			console.log('parsing failed: ', error);
+		});
+		url = "http://127.0.0.1:3000/comment/search?"+ "filmid=" + filmid + "&userid=" + sessionStorage.getItem("userid");
+			fetch(url,{
+				method:"GET"
+			}).then(function(res){
+				return res.json();
+			}).then(function(json){
+				if(json.length == 0){
+				}
+			}).catch(function (error) {
+			console.log('parsing failed: ', error);
+		});
+		getFilmInfo(filmid);
+		function getFilmInfo(filmid) {
+			var url = "http://127.0.0.1:3000/filminfo/main?" + "filmid=" + filmid;
+			fetch(url, {
+				method: "get"
+			}).then(function (res) {
+				return res.json();
+			}).then(function (json) {
+				console.log(json);
+				$("#filmimg").attr("src", json[0].imghref);
+				$("#filmname").text(json[0].filmname);
+				$("#filmtype").text(json[0].types);
+				$("#filmcountryandtime").text(json[0].country + "/" + json[0].date);
+				$("#juqing").text(json[0].intr);
+				let score = json[0].score * 5 / 10;
+				let score1 = Math.floor(score);
+				let score2 = Math.round(score);
+				let bool = score2 > score1 ? true : false;
+				if (score == 0) {
+					let ei = document.createElement("i");
+					ei.textContent = "暂无评价";
+					$("#filmscore").append(ei);
+				}
+				else {
+					for (let j = 0; j < score1; j++) {
+						let ei = document.createElement("i");
+						ei.className = "fa fa-star";
+						$("#filmscore").append(ei);
+					}
+					if (bool) {
+						let ei = document.createElement("i");
+						ei.className = "fa fa-star-half-full";
+						$("#filmscore").append(ei);
+					}
+					let ei = document.createElement("i");
+					ei.textContent = json[0].score;
+					$("#filmscore").append(ei);
+				}
+				getFilmDirector(json[0].director);
+				getFilmActors(filmid);
+				return json;
+			}).catch(function (ex) {
+				console.log('parsing failed: ', ex)
+			})
+		}
+		function getFilmDirector(directorid) {
+			var url = "http://127.0.0.1:3000/filminfo/director?" + "director=" + directorid;
+			fetch(url, {
+				method: "get"
+			}).then(function (res) {
+				return res.json();
+			}).then(function (json) {
+				console.log(json);
+				$("#directorimg").attr("src", json[0].img);
+				$("#directorname").text(json[0].actorname);
+				return json;
+			}).catch(function (ex) {
+				console.log('parsing failed: ', ex)
+			})
+		}
+		function getFilmActors(filmid) {
+			var url = "http://127.0.0.1:3000/filminfo/actors?" + "filmid=" + filmid;
+			fetch(url, {
+				method: "get"
+			}).then(function (res) {
+				return res.json();
+			}).then(function (json) {
+				console.log(json);
+				let i = 0;
+				$(".actor").each(function () {
+					$(this).find("img").attr("src", json[i].img);
+					$(this).children("p").eq(1).text(json[i].actorname);
+					// console.log();
+					console.log(i);
+					i++;
+				})
+				return json;
+			}).catch(function (ex) {
+				console.log('parsing failed: ', ex)
+			})
+		}
+		//收藏功能
+		$("#shoucang").click(function () {
+			var url = "http://127.0.0.1:3000/collect/search?" + "filmid=" + filmid + "&userid=" + sessionStorage.getItem("userid");
+			fetch(url, {
+				method: "GET"
+			}).then(function (res) {
+				return res.json();
+			}).then(function (json) {
+				if (json.length == 0) {
+					let url1 = "http://127.0.0.1:3000/collect/add?" + "filmid=" + filmid + "&userid=" + sessionStorage.getItem("userid");
+					console.log("btn click");
+					$("#shoucang").children("i").attr("style", "color: red");
+					fetch(url1, {
+						method: "GET"
+					}).then(function (res) {
+						console.log(res);
+					})
+				}
+				else {
+					let url2 = "http://127.0.0.1:3000/collect/remove?" + "filmid=" + filmid + "&userid=" + sessionStorage.getItem("userid");
+					console.log("btn click");
+					$("#shoucang").children("i").attr("style", "color: white");
+					fetch(url2, {
+						method: "GET"
+					}).then(function (res) {
+						console.log(res);
+					})
+				}
+			}).catch(function (ex) {
+				console.log('parsing failed: ', ex)
+			})
+
+		})
+
+		//评分功能
+		$("#pj-submit").click(function(){
+			let score = $("#yourscore").val();
+			let shortcomment = $("#yourcomment").val();
+			console.log(score);
+			console.log(shortcomment);
+			let url = "http://127.0.0.1:3000/comment/search?"+ "filmid=" + filmid + "&userid=" + sessionStorage.getItem("userid");
+			fetch(url,{
+				method:"GET"
+			}).then(function(res){
+				return res.json();
+			}).then(function(json){
+				if(json.length == 0){
+					let url1 = "http://127.0.0.1:3000/comment/add?"+ "filmid=" + filmid + "&userid=" + sessionStorage.getItem("userid");
+					fetch(url1,{
+						method:"POST",
+						headers: {
+    						'Accept': 'application/json',
+    						'Content-Type': 'application/json'
+   						},
+						body:JSON.stringify({
+							"userid":sessionStorage.getItem("userid"),
+							"filmid":filmid,
+							"score":score,
+							"evaluate":shortcomment
+						})
+					}).then(function(res){
+						$("#modal-close").click();
+						$("#pingjia").children("i").attr("style","color: red");
+						$("#pingjia").attr("disabled","disabled");
+					})
+				}
+				else{
+					alert("您已经做过评价！")
+				}
+			}).catch(function (ex) {
+				console.log('parsing failed: ', ex)
+			})
+		})
+
+		//加载电影短评功能
+		//时间格式转换函数
+		function timeFormatter(value) {
+			var da = new Date(value.replace("/Date(", "").replace(")/" , "").split( "+")[0]);
+			return da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate() + " " + da.getHours() + ":" + da.getMinutes() + ":" + da.getSeconds();
+		}
+
+		url = "http://127.0.0.1:3000/comment/searchbyfilm?"+"filmid=" + filmid ;
+		fetch(url,{
+			method:"GET"
+		}).then(function(res){
+			return res.json();
+		}).then(function(json){
+			var comment = $(".filmcomment").eq(0);
+			for(let i=0;i<json.length;i++){
+				let name=json[i].username;
+				let score = json[i].score;
+				let evaluate = json[i].evaluate;
+				let givelike = json[i].givelike;
+				let date = json[i].createdate;
+				let userid = json[i].userid;
+				let div1 = document.createElement("div");
+				div1.setAttribute("style","margin-top: 15px; border-bottom: solid black 1px;");
+				let h = document.createElement("h3");
+				h.textContent = name;
+				div1.appendChild(h);
+				let div2 = document.createElement("div");
+				div2.className="filmcomment-pj";
+				div2.setAttribute("style","color: yellow;")
+				let ei = document.createElement("i");
+					ei.setAttribute("style","color: black;");
+					ei.textContent = timeFormatter(date);
+					div2.appendChild(ei);
+				let score1 = Math.floor(score/2);
+				let score2 = Math.round(score/2);
+				let bool = score2>score1?true:false;
+				for(let j = 0; j < score1; j++) {
+					let ei = document.createElement("i");
+					ei.className = "fa fa-star";
+					div2.appendChild(ei);
+				}
+				if(bool){
+					let ei = document.createElement("i");
+					ei.className = "fa fa-star-half-full";
+					div2.appendChild(ei);
+				}
+				    ei = document.createElement("i");
+					ei.textContent = score;
+					div2.appendChild(ei);
+				let a = document.createElement("a");
+				a.className="giveAlike";
+				a.setAttribute("value",userid);
+				ei = document.createElement("i");
+				ei.setAttribute("style","color: black;float: right;");
+				ei.className="fa fa-thumbs-o-up";
+				ei.textContent=givelike;
+				a.appendChild(ei);
+				div2.appendChild(a);
+				let div3 = document.createElement("div");
+				div3.className = "filmcomment-con";
+				let p = document.createElement("p");
+				p.textContent=evaluate;
+				div3.appendChild(p);
+				div1.appendChild(div2);
+				div1.appendChild(div3);
+				comment.append(div1);
+			}
+		})
+	</script>
+</body>
+
+</html>

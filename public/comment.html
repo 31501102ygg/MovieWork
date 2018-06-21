@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Yip Tang Movie</title>
+		<link rel="shortcut icon" href="img/pic/html_16px_1210190_easyicon.net.ico" /> 
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Material Design Bootstrap -->
+		<link href="css/mdb.min.css" rel="stylesheet">
+		<!-- Your custom styles (optional) -->
+		<link href="css/style.css" rel="stylesheet">
+		<style type="text/css">
+			.hotFilmRolling{
+				margin-top: 70px;
+			}
+			.view {
+				height: 100vh;
+				overflow: hidden;
+			}
+			.d-block{
+				width:100%;
+				height: 500px;
+			}
+			.page-footer, .top-nav-collapse {
+    			background-color: #4285f4;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--Navbar-->
+		<nav class="navbar navbar-expand-lg navbar-dark blue darken-3 fixed-top scrolling-navbar">
+			<div class="container">
+				<!-- Navbar brand -->
+				<a class="navbar-brand" href="#"><img src="img/pic/logo.png"></a>
+
+				<!-- Collapse button -->
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        	<span class="navbar-toggler-icon"></span>
+    	</button>
+
+				<!-- Collapsible content -->
+				<div class="collapse navbar-collapse" id="basicExampleNav">
+
+					<!-- Links -->
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="#">热映电影
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">寻找电影</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">影评</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">个人收藏</a>
+						</li>
+						<!-- Dropdown -->
+						<!--<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+						<div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+							<a class="dropdown-item" href="#">Action</a>
+							<a class="dropdown-item" href="#">Another action</a>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>-->
+
+					</ul>
+					<!-- Links -->
+					<ul class="navbar-nav mr-auto nav-flex-icons">
+						<li class="nav-item">
+							<a class="nav-link waves-effect waves-light" href="#">
+								<i class="fa fa-envelope"></i> 评论</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link waves-effect waves-light" href="#">
+								<i class="fa fa-gear"></i> 设置</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								<i class="fa fa-user"></i> 用户名称
+							</a>
+							<div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item waves-effect waves-light" href="#">我的账号</a>
+								<a class="dropdown-item waves-effect waves-light" href="#">退出</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!-- Collapsible content -->
+			</div>
+		</nav>
+		<!--/.Navbar-->
+
+
+		<div class="hotFilmRolling">
+           <div class="container">
+						<div class="col-md-12 col-xl-5 mb-4">
+							<!--Card-->
+							<div class="card" >
+								<!--Card content-->
+								<div class="card-body">
+
+									<!-- Form -->
+									<form >
+										<!-- Heading -->
+										<h3 class="dark-grey-text text-center">
+											<strong>我的资料</strong>
+										</h3>
+										<hr>
+	
+										<div class="md-form">
+											<i class="fa fa-user prefix grey-text"></i>
+											<input type="text" id="nickName" class="form-control">
+											<label for="form3">昵称</label>
+										</div>
+										<div class="md-form">
+											<i class="fa fa-lock prefix grey-text"></i>
+											<input type="text" id="sex" class="form-control">
+											<label for="form2">性别</label>
+										</div>
+										<div class="md-form">
+											<i class="fa fa-lock prefix grey-text"></i>
+											<input type="text" id="motto" class="form-control">
+											<label for="form2">个性签名</label>
+										</div>
+										<div class="text-center">
+											<button id="modify" type="button" class="btn btn-indigo waves-effect waves-light ">修改我的个人资料</button>
+										</div>
+	
+									</form>
+									<!-- Form -->
+	
+								</div>
+	
+							</div>
+							<!--/.Card-->
+	
+						</div>
+						<!--Grid column-->
+	
+					</div>
+					<!--Grid row-->
+	
+				</div>
+				<!-- Content -->
+	
+			</div>
+			<!-- Mask & flexbox options-->
+	
+		</div>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+					<div class="modal-content">
+						<form id="modify" class="ajax-auth card p-0" action="modify" method="post" novalidate="novalidate">
+			<div class="card-body mx-4">
+					<div class="text-center">
+							<h3 class="dark-grey-text mb-3"><strong>个人资料修改</strong></h3>
+					</div>
+	
+					<p class="status"></p>
+					<input type="hidden" id="modifysecurity" name="modifysecurity" value="8334571d2a"><input type="hidden" name="_wp_http_referer" value="/components/">
+					<div class="md-form">
+						<i class="fa fa-user prefix grey-text"></i>
+							<input type="text" id="nickname" class="form-control" >
+							<label for="modifynickname">昵称</label>
+					</div>
+	
+					<div class="md-form">
+						<i class="fa fa-lock prefix grey-text"></i>
+							<input type="text" id="sex" class="form-control" >
+							<label for="modifysex">性别</label>
+					</div>
+	
+					<div class="md-form">
+						<i class="fa fa-lock prefix grey-text"></i>
+							<input type="text" id="modifymotto" class="form-control" >
+							<label for="modifymotto">个性签名</label>
+					</div>
+	
+					<div class="text-center mt-3 mb-3">
+							<button id="modify" class="btn btn-indigo waves-effect waves-light " type="button">确认修改</button>
+					</div>
+			</div>
+	</form>
+					</div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+	</div>
+					 </div>
+		</div>
+	
+
+		<!-- Start your project here-->
+		<!-- <div style="height: 100vh">
+			<div class="flex-center flex-column">
+				<h1 class="animated fadeIn mb-4">Material Design for Bootstrap</h1>
+
+				<h5 class="animated fadeIn mb-3">Thank you for using our product. We're glad you're with us.</h5>
+
+				<p class="animated fadeIn text-muted">MDB Team</p>
+			</div>
+		</div> -->
+		<footer class="page-footer text-center font-small mt-4 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+
+			<!--Call to action-->
+			<div class="pt-4">
+			  <a class="btn btn-outline-white waves-effect waves-light" href="https://mdbootstrap.com/getting-started/" target="_blank" role="button"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下载MDB
+				</font></font><i class="fa fa-download ml-2"></i>
+			  </a>
+			  <a class="btn btn-outline-white waves-effect waves-light" href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank" role="button"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开始免费教程
+				</font></font><i class="fa fa-graduation-cap ml-2"></i>
+			  </a>
+			</div>
+			<!--/.Call to action-->
+		
+			<hr class="my-4">
+		
+			<!-- Social icons -->
+			<div class="pb-4">
+			  <a href="https://www.facebook.com/mdbootstrap" target="_blank">
+				<i class="fa fa-facebook mr-3"></i>
+			  </a>
+		
+			  <a href="https://twitter.com/MDBootstrap" target="_blank">
+				<i class="fa fa-twitter mr-3"></i>
+			  </a>
+		
+			  <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
+				<i class="fa fa-youtube mr-3"></i>
+			  </a>
+		
+			  <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
+				<i class="fa fa-google-plus mr-3"></i>
+			  </a>
+		
+			  <a href="https://dribbble.com/mdbootstrap" target="_blank">
+				<i class="fa fa-dribbble mr-3"></i>
+			  </a>
+		
+			  <a href="https://pinterest.com/mdbootstrap" target="_blank">
+				<i class="fa fa-pinterest mr-3"></i>
+			  </a>
+		
+			  <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
+				<i class="fa fa-github mr-3"></i>
+			  </a>
+		
+			  <a href="http://codepen.io/mdbootstrap/" target="_blank">
+				<i class="fa fa-codepen mr-3"></i>
+			  </a>
+			</div>
+			<!-- Social icons -->
+		
+			<!--Copyright-->
+			<div class="footer-copyright py-3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+			  ©2018版权所有：
+			   </font></font><a href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Yip&amp;Tang </font></font></a>
+			</div>
+			<!--/.Copyright-->
+		
+		  </footer>
+		  
+		<!-- /Start your project here-->
+
+		<!-- SCRIPTS -->
+		<!-- JQuery -->
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<!-- Bootstrap tooltips -->
+		<script type="text/javascript" src="js/popper.min.js"></script>
+		<!-- Bootstrap core JavaScript -->
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<!-- MDB core JavaScript -->
+		<script type="text/javascript" src="js/mdb.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#modify").click(function(){
+					$("#myModal").modal(Option);
+				})
+				
+			/*	$("#signin").click(function(){
+				var userName = document.getElementById("userName").value;
+				var passWord = document.getElementById("passWord").value;
+				console.log(userName);
+				console.log(passWord);
+				if (!userName)
+					alert("用户名不能为空！");
+				else if (!passWord) 
+					alert("密码不能为空！");
+				else{
+					var url = " http://127.0.0.1:3000/findUser"+"?"+"userName="+userName;
+					fetch(url,{
+						method:"GET"
+					}).then(function(response){
+						console.log(response);
+						return response.json();
+					}).then(function(json){
+						console.log(json);
+						var user = json[0];
+						if(!user){
+							alert("没有这个账号");
+							return;
+						}
+						if(user.password == passWord){
+							if(document.getElementById("checkbox1").value == true){
+								localStorage.setItem("username",userName);
+								localStorage.setItem("password",passWord);
+							}
+							sessionStorage.setItem("username",userName);
+							sessionStorage.setItem("password",passWord);
+							window.location.href='./main1.html';
+						}
+						else{
+							alert("密码错误！")
+						}							
+						
+					})
+				}
+
+				
+			})*/
+			})
+			
+		</script>
+  	<script type="text/javascript">
+				console.log(sessionStorage.getItem("username"))
+				 $("#navbarDropdownMenuLink").html('<i class="fa fa-user"></i>'+sessionStorage.getItem("username"));
+		</script>
+	</body>
+
+</html>
