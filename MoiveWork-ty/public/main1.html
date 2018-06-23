@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Yip Tang Movie</title>
+		<link rel="shortcut icon" href="img/pic/html_16px_1210190_easyicon.net.ico" />
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Material Design Bootstrap -->
+		<link href="css/mdb.min.css" rel="stylesheet">
+		<!-- Your custom styles (optional) -->
+		<link href="css/style.css" rel="stylesheet">
+		<style type="text/css">
+			.hotFilmRolling {
+				margin-top: 70px;
+			}
+	
+			.d-block {
+				width: 100%;
+				height: 500px;
+			}
+	
+			.page-footer,
+			.top-nav-collapse {
+				background-color: #4285f4;
+			}
+	
+			@media (max-width: 767px) {
+				.d-block{
+					height: 200px;
+				}
+			}
+	
+			@media (min-width: 768px) and (max-width: 991px) {
+				.d-block{
+					height: 400px;
+				}
+			}
+	
+			@media (min-width: 992px) {
+				.d-block{
+					height: 550px;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--Navbar-->
+		<nav class="navbar navbar-expand-lg navbar-dark  blue darken-3 fixed-top scrolling-navbar">
+			<div class="container">
+				<!-- Navbar brand -->
+				<a class="navbar-brand" href="#"><img src="img/pic/logo.png"></a>
+
+				<!-- Collapse button -->
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        	<span class="navbar-toggler-icon"></span>
+    	</button>
+
+				<!-- Collapsible content -->
+				<div class="collapse navbar-collapse" id="basicExampleNav">
+
+					<!-- Links -->
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="./main1.html">热映电影
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./searchfilms.html">寻找电影</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./filmreview.html">影评</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./personcollect.html">个人收藏</a>
+						</li>
+						<!-- Dropdown -->
+						<!--<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+						<div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+							<a class="dropdown-item" href="#">Action</a>
+							<a class="dropdown-item" href="#">Another action</a>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>-->
+
+					</ul>
+					<!-- Links -->
+					<ul class="navbar-nav mr-auto nav-flex-icons">
+						<li class="nav-item">
+							<a class="nav-link waves-effect waves-light" href="./contact.html">
+								<i class="fa fa-envelope"></i> 联系我们</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link waves-effect waves-light" href="#">
+								<i class="fa fa-gear"></i> 设置</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								<i class="fa fa-user"></i> 用户名称
+							</a>
+							<div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item waves-effect waves-light" href="./account.html">我的账号</a>
+								<a class="dropdown-item waves-effect waves-light" href="http://localhost:3000">退出</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!-- Collapsible content -->
+			</div>
+		</nav>
+		<!--/.Navbar-->
+
+		<!--图片轮播-->
+		<div class="hotFilmRolling">
+			<div class="container ">
+				<!--Carousel Wrapper-->
+				<div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+					<!--Indicators-->
+					<ol class="carousel-indicators">
+						<li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+						<li data-target="#carousel-example-1z" data-slide-to="1"></li>
+						<li data-target="#carousel-example-1z" data-slide-to="2"></li>
+					</ol>
+					<!--/.Indicators-->
+					<!--Slides-->
+					<div class="carousel-inner" role="listbox">
+						<!--First slide-->
+						<div class="carousel-item active">
+							<div class="view">
+								<img class="d-block w-100" src="https://img3.doubanio.com/view/photo/l/public/p2518208870.webp" value="248170" alt="First slide">
+								<a href="./filminfo.html" value="248170">
+									<div class="mask rgba-black-light"></div>
+								</a>
+							</div>
+							<div class="carousel-caption">
+                				<h4 class="h4-responsive">复仇者联盟3：无限战争</h3>
+                				<p>动作 / 科幻 / 奇幻 / 冒险</p>
+           	 				</div>
+						</div>
+						<!--/First slide-->
+						<!--Second slide-->
+						<div class="carousel-item ">
+							<div class="view">
+								<img class="d-block w-100" src="https://img3.doubanio.com/view/photo/l/public/p2521154351.webp"  value="341944" alt="First slide">
+								<a href="./filminfo.html" value="341944">
+									<div class="mask rgba-black-light" ></div>
+								</a>
+							</div>
+							<div class="carousel-caption">
+                				<h4 class="h4-responsive">游侠索罗：星球大战外传</h3>
+                				<p>动作 / 科幻 / 冒险</p>
+           	 				</div>
+						</div>
+						<!--/Second slide-->
+						<!--Third slide-->
+						<div class="carousel-item ">
+							<div class="view">
+								<img class="d-block w-100" src="https://img3.doubanio.com/view/photo/l/public/p2524376611.webp" value="27069675" alt="First slide">
+								<a href="./filminfo.html" value="27069675">
+									<div class="mask rgba-black-light"></div>
+								</a>
+							</div>
+							<div class="carousel-caption">
+                				<h4 class="h4-responsive">每一天</h3>
+                				<p>爱情 / 奇幻</p>
+           	 				</div>
+						</div>
+						<!--/Third slide-->
+					</div>
+					<!--/.Slides-->
+					<!--Controls-->
+					<a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+					<!--/.Controls-->
+				</div>
+				<!--/.Carousel Wrapper-->
+			</div>
+		</div>
+		<!--图片轮播结束-->
+		<div class="container">
+				<hr />
+			<strong>最近热门电影</strong>
+			<div class="row" style="float: right;">
+				<!--Pagination-->
+				<nav>
+					<ul class="pagination pagination-sm">
+
+						<!--Arrow left-->
+						<li class="page-item hotfilmsfy">
+							<a class="page-link" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+								<span class="sr-only">Previous</span>
+							</a>
+						</li>
+
+						<!--Numbers-->
+						<li class="page-item hotfilmsfy">
+							<a class="page-link" >1</a>
+						</li>
+						<li class="page-item hotfilmsfy">
+							<a class="page-link" >2</a>
+						</li>
+						<li class="page-item hotfilmsfy">
+							<a class="page-link" >3</a>
+						</li>
+
+						<!--Arrow right-->
+						<li class="page-item hotfilmsfy">
+							<a class="page-link"  aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+								<span class="sr-only">Next</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		
+		
+		<div class="hotflims">
+			<div class="container">
+				<hr />
+				<div id="hotfilmlunbo" class="row ">
+					<div class=" col-md-4 col-lg-2 zoom " style="text-align: center;">
+						<a href="#"><img class="z-depth-2" style="width: 100%;height: 80%; border-radius: 5px"></a>
+						<p style="height: 40px;"></p>
+						<p></p>
+					</div>
+					<div class=" col-md-4 col-lg-2 zoom" style="text-align: center;">
+						<a href="#"><img class="z-depth-2" style="width: 100%;height: 80%; border-radius: 5px"></a>
+						<p style="height: 40px;"></p>
+						<p></p>
+					</div>
+					<div class=" col-md-4 col-lg-2 zoom" style="text-align: center;">
+						<a href="#"><img class="z-depth-2" style="width: 100%;height: 80%; border-radius: 5px"></a>
+						<p style="height: 40px;"></p>
+						<p></p>
+					</div>
+					<div class=" col-md-4 col-lg-2 zoom" style="text-align: center;">
+						<a href="#"><img class="z-depth-2" style="width: 100%;height: 80%; border-radius: 5px"></a>
+						<p style="height: 40px;"></p>
+						<p></p>
+					</div>
+					<div class=" col-md-4 col-lg-2 zoom" style="text-align: center;">
+						<a href="#"><img class="z-depth-2" style="width: 100%;height: 80%; border-radius: 5px"></a>
+						<p style="height: 40px;"></p>
+						<p></p>
+					</div>
+					<div class=" col-md-4 col-lg-2 zoom" style="text-align: center;">
+						<a href="#"><img class="z-depth-2" style="width: 100%;height: 80%; border-radius: 5px"></a>
+						<p style="height: 40px;"></p>
+						<p></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="container">
+			<hr />
+		<strong>最新电影</strong>
+		<div class="row" style="float: right;">
+			<!--Pagination-->
+			<nav>
+				<ul class="pagination pagination-sm">
+
+					<!--Arrow left-->
+					<li class="page-item newfilmsfy">
+						<a class="page-link" aria-label="Previous">
+							<span aria-hidden="true">&laquo;</span>
+							<span class="sr-only">Previous</span>
+						</a>
+					</li>
+
+					<!--Numbers-->
+					<li class="page-item newfilmsfy">
+						<a class="page-link" >1</a>
+					</li>
+					<li class="page-item newfilmsfy">
+						<a class="page-link" >2</a>
+					</li>
+					<li class="page-item newfilmsfy">
+						<a class="page-link" >3</a>
+					</li>
+
+					<!--Arrow right-->
+					<li class="page-item newfilmsfy">
+						<a class="page-link"  aria-label="Next">
+							<span aria-hidden="true">&raquo;</span>
+							<span class="sr-only">Next</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	
+	
+	<div class="newflims">
+		<div class="container">
+			<hr />
+			<div id="newfilmlunbo" class="row ">
+				<div class=" col-md-4 col-lg-2  zoom" style="text-align: center;">
+					<a href="#"><img class="z-depth-2" style="width: 100%;height: 80%; border-radius: 5px"></a>
+					<p style="height: 40px;"></p>
+					<p></p>
+				</div>
+				<div class=" col-md-4 col-lg-2  zoom" style="text-align: center;">
+					<a href="#"><img class="z-depth-2" style="width: 100%;height: 80%; border-radius: 5px"></a>
+					<p style="height: 40px;"></p>
+					<p></p>
+				</div>
+				<div class=" col-md-4 col-lg-2  zoom" style="text-align: center;">
+					<a href="#"><img class="z-depth-2" style="width: 100%;height: 80%; border-radius: 5px"></a>
+					<p style="height: 40px;"></p>
+					<p></p>
+				</div>
+				<div class=" col-md-4 col-lg-2  zoom" style="text-align: center;">
+					<a href="#"><img class="z-depth-2" style="width: 100%;height: 80%; border-radius: 5px"></a>
+					<p style="height: 40px;"></p>
+					<p></p>
+				</div>
+				<div class=" col-md-4 col-lg-2  zoom" style="text-align: center;">
+					<a href="#"><img class="z-depth-2" style="width: 100%;height: 80%; border-radius: 5px"></a>
+					<p style="height: 40px;"></p>
+					<p></p>
+				</div>
+				<div class=" col-md-4 col-lg-2  zoom" style="text-align: center;">
+					<a href="#"><img class="z-depth-2" style="width: 100%;height: 80%; border-radius: 5px"></a>
+					<p style="height: 40px;"></p>
+					<p></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		<!-- Start your project here-->
+
+		<footer class="page-footer text-center font-small mt-4 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+
+			<!--Call to action-->
+			<div class="pt-4">
+			  <a class="btn btn-outline-white waves-effect waves-light" href="https://mdbootstrap.com/getting-started/" target="_blank" role="button"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下载MDB
+				</font></font><i class="fa fa-download ml-2"></i>
+			  </a>
+			  <a class="btn btn-outline-white waves-effect waves-light" href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank" role="button"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开始免费教程
+				</font></font><i class="fa fa-graduation-cap ml-2"></i>
+			  </a>
+			</div>
+			<!--/.Call to action-->
+		
+			<hr class="my-4">
+		
+			<!-- Social icons -->
+			<div class="pb-4">
+			  <a href="https://www.facebook.com/mdbootstrap" target="_blank">
+				<i class="fa fa-facebook mr-3"></i>
+			  </a>
+		
+			  <a href="https://twitter.com/MDBootstrap" target="_blank">
+				<i class="fa fa-twitter mr-3"></i>
+			  </a>
+		
+			  <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
+				<i class="fa fa-youtube mr-3"></i>
+			  </a>
+		
+			  <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
+				<i class="fa fa-google-plus mr-3"></i>
+			  </a>
+		
+			  <a href="https://dribbble.com/mdbootstrap" target="_blank">
+				<i class="fa fa-dribbble mr-3"></i>
+			  </a>
+		
+			  <a href="https://pinterest.com/mdbootstrap" target="_blank">
+				<i class="fa fa-pinterest mr-3"></i>
+			  </a>
+		
+			  <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
+				<i class="fa fa-github mr-3"></i>
+			  </a>
+		
+			  <a href="http://codepen.io/mdbootstrap/" target="_blank">
+				<i class="fa fa-codepen mr-3"></i>
+			  </a>
+			</div>
+			<!-- Social icons -->
+		
+			<!--Copyright-->
+			<div class="footer-copyright py-3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+			  ©2018版权所有：
+			   </font></font><a href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Yip&amp;Tang </font></font></a>
+			</div>
+			<!--/.Copyright-->
+		
+		  </footer>
+		  
+		<!-- /Start your project here-->
+
+		<!-- SCRIPTS -->
+		<!-- JQuery -->
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<!-- Bootstrap tooltips -->
+		<script type="text/javascript" src="js/popper.min.js"></script>
+		<!-- Bootstrap core JavaScript -->
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<!-- MDB core JavaScript -->
+		<script type="text/javascript" src="js/mdb.min.js"></script>
+		
+		<script type="text/javascript">
+		 	console.log(sessionStorage.getItem("username"))
+			  $("#navbarDropdownMenuLink").html('<i class="fa fa-user"></i>'+sessionStorage.getItem("username"));
+			  
+			//热门电影分页展示_开始
+			var index = 1;
+			loadfilmbyindex(index);
+			var links = $('.hotfilmsfy');
+			links[0].addEventListener("click",function(){
+				index = (index-1+3)%3;
+				if(index==0)
+					index=3;
+				emptyfilms();
+				loadfilmbyindex(index);
+			})
+			links[1].addEventListener("click",function(){
+				index = 1;
+				emptyfilms();
+				loadfilmbyindex(index);
+			})
+			links[2].addEventListener("click",function(){
+				index = 2;
+				emptyfilms();
+				loadfilmbyindex(index);
+			})
+			links[3].addEventListener("click",function(){
+				index = 3;
+				emptyfilms();
+				loadfilmbyindex(index);
+			})
+			links[4].addEventListener("click",function(){
+				index = (index+1)%3;
+				if(index == 0)
+					index = 3;
+				emptyfilms();
+				loadfilmbyindex(index);
+			})
+			function emptyfilms(){
+				console.log("empty");
+				var child = $("#hotfilmlunbo").children();
+				// var child2 = $("#hotfilmlunbo_pf").children();
+				for(let i = 0; i < 6; i++) {
+					child[i].children[0].children[0].removeAttribute("src");
+					child[i].children[1].textContent = "";
+					child[i].children[2].textContent="";
+				}
+			}
+			function loadfilmbyindex(index){
+				var url = " http://127.0.0.1:3000/loadfilmsbyindex/hot?"+"index="+index;
+				console.log(url);
+				fetch(url, {
+				method: "GET"
+			}).then(function(response) {
+				return response.json();
+			}).then(function(json) {
+			var child = $("#hotfilmlunbo").children();
+			// var child2 = $("#hotfilmlunbo_pf").children();
+			for(let i = 0; i < 6; i++) {
+				child[i].children[0].children[0].setAttribute("src", json[i].imghref);
+				child[i].children[0].children[0].addEventListener("click", function(){
+					let filmid = json[i].filmid;
+					sessionStorage.setItem("filmid",filmid);
+					window.location.href="./filminfo.html";
+				});
+				child[i].children[1].textContent = json[i].filmname;
+
+				let score = json[i].score*5/10;
+				let score1 = Math.floor(score);
+				let score2 = Math.round(score);
+				let bool = score2>score1?true:false;
+				if(score == 0){
+					let ei = document.createElement("i");
+					ei.textContent = "暂无评价";
+					child[i].children[2].appendChild(ei);
+				}
+				else{
+				for(let j = 0; j < score1; j++) {
+					let ei = document.createElement("i");
+					ei.className = "fa fa-star";
+					child[i].children[2].appendChild(ei);
+				}
+				if(bool){
+					let ei = document.createElement("i");
+					ei.className = "fa fa-star-half-full";
+					child[i].children[2].appendChild(ei);
+				}
+				let ei = document.createElement("i");
+					ei.textContent = json[i].score;
+					child[i].children[2].appendChild(ei);
+				}
+
+				}
+			}).catch(function(ex) {
+				console.log('parsing failed: ', ex)
+			})
+			}
+			//热门电影分页展示_结束
+
+			//最新电影分页展示_开始
+			var index2 = 1;
+			loadnewfilmbyindex(index2);
+			var links2 = $('.newfilmsfy');
+			links2[0].addEventListener("click",function(){
+				index2 = (index2-1+3)%3;
+				if(index2==0)
+					index2=3;
+				emptynewfilms();
+				loadnewfilmbyindex(index2);
+			})
+			links2[1].addEventListener("click",function(){
+				index2 = 1;
+				emptynewfilms();
+				loadnewfilmbyindex(index2);
+			})
+			links2[2].addEventListener("click",function(){
+				index2 = 2;
+				emptynewfilms();
+				loadnewfilmbyindex(index2);
+			})
+			links2[3].addEventListener("click",function(){
+				index2 = 3;
+				emptynewfilms();
+				loadnewfilmbyindex(index2);
+			})
+			links2[4].addEventListener("click",function(){
+				index2 = (index2+1)%3;
+				if(index2 == 0)
+					index2 = 3;
+				emptynewfilms();
+				loadnewfilmbyindex(index2);
+			})
+			function emptynewfilms(){
+				console.log("empty");
+				var child = $("#newfilmlunbo").children();
+				// var child2 = $("#newfilmlunbo_pf").children();
+				for(let i = 0; i < 6; i++) {
+					child[i].children[0].children[0].removeAttribute("src");
+					child[i].children[1].textContent = "";
+					child[i].children[2].textContent="";
+				}
+			}
+			function loadnewfilmbyindex(index){
+				var url = " http://127.0.0.1:3000/loadfilmsbyindex/new?"+"index="+index;
+				console.log(url);
+				fetch(url, {
+				method: "GET"
+			}).then(function(response) {
+				return response.json();
+			}).then(function(json) {
+			var child = $("#newfilmlunbo").children();
+			// var child2 = $("#newfilmlunbo_pf").children();
+			for(let i = 0; i < 6; i++) {
+				child[i].children[0].children[0].setAttribute("src", json[i].imghref);
+				child[i].children[0].children[0].addEventListener("click", function(){
+					let filmid = json[i].filmid;
+					sessionStorage.setItem("filmid",filmid);
+					window.location.href="./filminfo.html";
+				});
+				child[i].children[1].textContent = json[i].filmname;
+
+				let score = json[i].score*5/10;
+				let score1 = Math.floor(score);
+				let score2 = Math.round(score);
+				let bool = score2>score1?true:false;
+				if(score == 0){
+					let ei = document.createElement("i");
+					ei.textContent = "暂无评价";
+					child[i].children[2].appendChild(ei);
+				}
+				else{
+				for(let j = 0; j < score1; j++) {
+					let ei = document.createElement("i");
+					ei.className = "fa fa-star";
+					child[i].children[2].appendChild(ei);
+				}
+				if(bool){
+					let ei = document.createElement("i");
+					ei.className = "fa fa-star-half-full";
+					child[i].children[2].appendChild(ei);
+				}
+				let ei = document.createElement("i");
+					ei.textContent = json[i].score;
+					child[i].children[2].appendChild(ei);
+				}
+
+				}
+			}).catch(function(ex) {
+				console.log('parsing failed: ', ex)
+			})
+			}
+			//最新电影分页展示_结束
+			$(".mask").click(function(){
+				var filmid = $(this).parent().attr("value");
+				console.log(filmid);
+				sessionStorage.setItem("filmid",filmid);
+				// window.location.href = "./filminfo.html";
+			})
+		</script>
+	</body>
+
+</html>
