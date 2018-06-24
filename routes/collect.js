@@ -19,7 +19,7 @@ var sql2 = "DELETE from collects where userid = ? and filmid = ?";
 var sql3 = "select * from collects where userid = ? and filmid = ?";
 var sql4 = "SELECT COUNT(filmid) FROM collects where userid = ?";
 var sql5 = "select collects.filmid,filmname,imghref FROM collects INNER JOIN allfilms on collects.filmid = allfilms.filmid where userid = ?";
-var sql6 = "select collects.filmid,filmname,imghref FROM collects INNER JOIN allfilms on collects.filmid = allfilms.filmid where userid = ? limit ?,9";
+var sql6 = "select collects.filmid,filmname,imghref,score FROM collects INNER JOIN allfilms on collects.filmid = allfilms.filmid where userid = ? limit ?,9";
 router.get('/add', function(req, res, next) {
     //解析请求参数
     var params = URL.parse(req.url, true).query;

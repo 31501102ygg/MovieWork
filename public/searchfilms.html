@@ -19,7 +19,7 @@
 		.searchbar {
 			margin-top: 70px;
 		}
-		
+
 		.input-group.md-form.form-sm.form-1 input {
 			border: 1px solid #bdbdbd;
 			border-top-right-radius: 0.25rem;
@@ -38,31 +38,31 @@
 		}
 
 		@media (max-width: 767px) {
-			.insertimgs{
-				width:100%;
+			.insertimgs {
+				width: 100%;
 				height: 380px;
 			}
-			.imgrow{
+			.imgrow {
 				width: 80%;
-				margin-left: 10%; 
+				margin-left: 10%;
 			}
 		}
 
 		@media (min-width: 768px) and (max-width: 991px) {
-			.insertimgs{
-				width:100%;
+			.insertimgs {
+				width: 100%;
 				height: 260px;
 			}
 		}
 
 		@media (min-width: 992px) {
-			.insertimgs{
-				width:100%;
+			.insertimgs {
+				width: 100%;
 				height: 230px;
 			}
 			div.row {
-			margin-top: 40px;
-		}
+				margin-top: 40px;
+			}
 		}
 	</style>
 </head>
@@ -115,12 +115,12 @@
 				<!-- Links -->
 				<ul class="navbar-nav mr-auto nav-flex-icons">
 					<li class="nav-item">
-						<a class="nav-link waves-effect waves-light" href="#">
-							<i class="fa fa-envelope"></i> 联系我们</a>
+						<a class="nav-link waves-effect waves-light" href="./aboutus.html">
+							<i class="fa fa-gear"></i> 关于我们</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link waves-effect waves-light" href="#">
-							<i class="fa fa-gear"></i> 设置</a>
+						<a class="nav-link waves-effect waves-light" href="./contact.html">
+							<i class="fa fa-envelope"></i> 联系我们</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -128,7 +128,7 @@
 							<i class="fa fa-user"></i> 用户名称
 						</a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item waves-effect waves-light" href="#">我的账号</a>
+							<a class="dropdown-item waves-effect waves-light" href="./account.html">我的账号</a>
 							<a class="dropdown-item waves-effect waves-light" href="#">退出</a>
 						</div>
 					</li>
@@ -345,12 +345,12 @@
 		})
 
 		//搜索电影功能
-		$("#basic-text1").click(function(){
-				let input = $("#sInput").val();
-				console.log(input);
-				let url = " http://127.0.0.1:3000/loadfilms/search?" + "input=" + input;
-				emptyFilms();
-				loadfilms(url);
+		$("#basic-text1").click(function () {
+			let input = $("#sInput").val();
+			console.log(input);
+			let url = " http://127.0.0.1:3000/loadfilms/search?" + "input=" + input;
+			emptyFilms();
+			loadfilms(url);
 		})
 
 		function emptyFilms() {
@@ -396,14 +396,14 @@
 			let view = document.createElement("div");
 			view.className = "view zoom";
 			let img = document.createElement("img");
-			img.className="insertimgs";
+			img.className = "insertimgs";
 			img.setAttribute("src", info.imghref);
 			img.setAttribute("style", " border-top-left-radius:3px; border-top-right-radius:3px;");
 			let a = document.createElement("a");
 			a.setAttribute("href", "./filminfo.html");
 			a.setAttribute("value", info.filmid);
-			a.addEventListener("click",function(){
-				sessionStorage.setItem("filmid",a.getAttribute("value"));
+			a.addEventListener("click", function () {
+				sessionStorage.setItem("filmid", a.getAttribute("value"));
 			})
 			let div = document.createElement("div");
 			div.className = "mask rgba-white-slight waves-effect waves-light";
@@ -414,7 +414,7 @@
 
 			let body = document.createElement("div");
 			body.className = "card-body";
-			body.setAttribute("style","padding:10px")
+			body.setAttribute("style", "padding:10px")
 			let p = document.createElement("p");
 			p.className = "card-title";
 			p.setAttribute("style", "text-align: center; height:50px; ")
@@ -425,6 +425,14 @@
 			col.appendChild(card);
 			return col;
 		}
+		//退出账户
+		$("#out").click(function () {
+			localStorage.removeItem("username");
+			localStorage.removeItem("password");
+			sessionStorage.removeItem("username");
+			sessionStorage.removeItem("username");
+			sessionStorage.removeItem("userid");
+		})
 	</script>
 </body>
 

@@ -1,42 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>Yip Tang Movie</title>
-		<link rel="shortcut icon" href="img/pic/html_16px_1210190_easyicon.net.ico" /> 
-		<!-- Font Awesome -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<!-- Bootstrap core CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<!-- Material Design Bootstrap -->
-		<link href="css/mdb.min.css" rel="stylesheet">
-		<!-- Your custom styles (optional) -->
-		<link href="css/style.css" rel="stylesheet">
-		<style type="text/css">
-			.view{
-				height: 100vh;
-				overflow: hidden;
-			}
-			.navbar{
-				background-color: rgba(0,0,0,.3);
-			}
-		</style>
-	</head>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Yip Tang Movie</title>
+	<link rel="shortcut icon" href="img/pic/html_16px_1210190_easyicon.net.ico" />
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="css/mdb.min.css" rel="stylesheet">
+	<!-- Your custom styles (optional) -->
+	<link href="css/style.css" rel="stylesheet">
+	<style type="text/css">
+		.view {
+			height: 100vh;
+			overflow: hidden;
+		}
 
-	<body>
-		<!--Navbar-->
-		<nav class="navbar navbar-expand-lg navbar-dark lighten-5 fixed-top scrolling-navbar">
-			<div class="container">
+		@media (max-width: 767px) {
+			.navbar {
+				background-color: rgba(0, 0, 0, .5);
+			}
+		}
+
+		@media (min-width: 768px) {
+			.navbar {
+				background-color: rgba(0, 0, 0, .3);
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<!--Navbar-->
+	<nav class="navbar navbar-expand-lg navbar-dark lighten-5 fixed-top scrolling-navbar">
+		<div class="container">
 			<!-- Navbar brand -->
-			<a class="navbar-brand" href="#"><img src="img/pic/logo.png"></a>
+			<a class="navbar-brand" href="#">
+				<img src="img/pic/logo.png">
+			</a>
 
 			<!-- Collapse button -->
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+			 aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
 			<!-- Collapsible content -->
 			<div class="collapse navbar-collapse" id="basicExampleNav">
@@ -69,282 +81,319 @@
 				<!-- Links -->
 				<ul class="navbar-nav mr-auto nav-flex-icons">
 					<li id="contentus" class="nav-item">
-                            <a class="nav-link waves-effect waves-light" href="#">
-                                <i class="fa fa-envelope"></i> 联系我们</a>
-                        </li>
+						<a class="nav-link waves-effect waves-light" href="./aboutus.html">
+							<i class="fa fa-gear"></i> 关于我们</a>
+					</li>
 					<li class="nav-item">
-                            <a class="nav-link waves-effect waves-light" href="#">
-                                <i class="fa fa-gear"></i> 设置</a>
-                        </li>
+						<a class="nav-link waves-effect waves-light" href="./contact.html">
+							<i class="fa fa-envelope"></i> 联系我们</a>
+					</li>
 					<li id="signup" class="nav-item">
-                            <a class="nav-link waves-effect waves-light" >
-                                <i class="fa fa-user-plus"></i> 注册</a>
-                        </li>
+						<a class="nav-link waves-effect waves-light">
+							<i class="fa fa-user-plus"></i> 注册</a>
+					</li>
 				</ul>
 			</div>
 			<!-- Collapsible content -->
-			</div>
-		</nav>
-		<div class="view full-page-intro" style="background-image: url(img/pic/starTrek.jpg); background-repeat: no-repeat; background-size: cover;">
+		</div>
+	</nav>
+	<div class="view full-page-intro" style="background-image: url(img/pic/starTrek.jpg); background-repeat: no-repeat; background-size: cover;">
 
-    <!-- Mask & flexbox options-->
-    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+		<!-- Mask & flexbox options-->
+		<div class="mask rgba-black-light d-flex justify-content-center align-items-center">
 
-      <!-- Content -->
-      <div class="container">
+			<!-- Content -->
+			<div class="container">
 
-        <!--Grid row-->
-        <div class="row wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+				<!--Grid row-->
+				<div class="row wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
 
-          <!--Grid column-->
-          <div class="col-md-6 mb-4 white-text text-center text-md-left">
+					<!--Grid column-->
+					<div class="col-md-6 mb-4 white-text text-center text-md-left">
 
-            <h1 class="display-4 font-weight-bold">Yip&amp;Tang Movie Site</h1>
+						<h1 class="display-4 font-weight-bold">Yip&amp;Tang Movie Site</h1>
 
-            <hr class="hr-light">
+						<hr class="hr-light">
 
-            <p>
-              <strong>热门电影推荐&amp;影讯影评</strong>
-            </p>
+						<p>
+							<strong>热门电影推荐&amp;影讯影评</strong>
+						</p>
 
-            <p class="mb-4 d-none d-md-block animated fadeIn">
-              <strong>这是一个电影推荐，查询网站，你可以收藏自己喜欢的电影，查看电影影评，发表电影影评，其他用户也可以给你留言进行互动。</strong>
-            </p>
+						<p class="mb-4 d-none d-md-block animated fadeIn">
+							<strong>这是一个电影推荐，查询网站，你可以收藏自己喜欢的电影，查看电影影评，发表电影影评，其他用户也可以给你留言进行互动。</strong>
+						</p>
 
-            <!--<a target="_blank" href="https://mdbootstrap.com/bootstrap-tutorial/" class="btn btn-indigo btn-lg waves-effect waves-light">Start free tutorial
+						<!--<a target="_blank" href="https://mdbootstrap.com/bootstrap-tutorial/" class="btn btn-indigo btn-lg waves-effect waves-light">Start free tutorial
               <i class="fa fa-graduation-cap ml-2"></i>
             </a>-->
 
-          </div>
-          <!--Grid column-->
+					</div>
+					<!--Grid column-->
 
-          <!--Grid column-->
-          <div class="col-md-6 col-xl-5 mb-4">
+					<!--Grid column-->
+					<div class="col-md-6 col-xl-5 mb-4">
 
-            <!--Card-->
-            <div class="card" >
+						<!--Card-->
+						<div class="card">
 
-              <!--Card content-->
-              <div class="card-body">
+							<!--Card content-->
+							<div class="card-body">
 
-                <!-- Form -->
-                <form >
-                  <!-- Heading -->
-                  <h3 class="dark-grey-text text-center">
-                    <strong>用户登录</strong>
-                  </h3>
-                  <hr>
+								<!-- Form -->
+								<form>
+									<!-- Heading -->
+									<h3 class="dark-grey-text text-center">
+										<strong>用户登录</strong>
+									</h3>
+									<hr>
 
-                  <div class="md-form">
-                    <i class="fa fa-user prefix grey-text"></i>
-                    <input type="text" id="userName" class="form-control">
-                    <label for="form3">账号</label>
-                  </div>
-                  <div class="md-form">
-                    <i class="fa fa-lock prefix grey-text"></i>
-                    <input type="password" id="passWord" class="form-control">
-                    <label for="form2">密码</label>
-                  </div>
+									<div class="md-form">
+										<i class="fa fa-user prefix grey-text"></i>
+										<input type="text" id="userName" class="form-control">
+										<label for="form3">账号</label>
+									</div>
+									<div class="md-form">
+										<i class="fa fa-lock prefix grey-text"></i>
+										<input type="password" id="passWord" class="form-control">
+										<label for="form2">密码</label>
+									</div>
 
-                  <div class="text-center">
-                    <button id="signin" type="button" class="btn btn-indigo waves-effect waves-light ">登录</button>
-                    <hr>
-                    <fieldset class="form-check">
-                      <input type="checkbox" class="form-check-input" id="checkbox1">
-                      <label for="checkbox1" class="form-check-label dark-grey-text">自动登录</label>
-                    </fieldset>
-                  </div>
+									<div class="text-center">
+										<button id="signin" type="button" class="btn btn-indigo waves-effect waves-light ">登录</button>
+										<hr>
+										<fieldset class="form-check">
+											<input type="checkbox" class="form-check-input" id="checkbox1">
+											<label for="checkbox1" class="form-check-label dark-grey-text">自动登录</label>
+										</fieldset>
+									</div>
 
-                </form>
-                <!-- Form -->
+								</form>
+								<!-- Form -->
 
-              </div>
+							</div>
 
-            </div>
-            <!--/.Card-->
+						</div>
+						<!--/.Card-->
 
-          </div>
-          <!--Grid column-->
+					</div>
+					<!--Grid column-->
 
-        </div>
-        <!--Grid row-->
+				</div>
+				<!--Grid row-->
 
-      </div>
-      <!-- Content -->
+			</div>
+			<!-- Content -->
 
-    </div>
-    <!-- Mask & flexbox options-->
+		</div>
+		<!-- Mask & flexbox options-->
 
-  </div>
+	</div>
 
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-          <form id="register" class="ajax-auth card p-0" action="register" method="post" novalidate="novalidate">
-    <div class="card-body mx-4">
-        <div class="text-center">
-            <h3 class="dark-grey-text mb-3"><strong>用户注册</strong></h3>
-        </div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form id="register" class="ajax-auth card p-0" action="register" method="post" novalidate="novalidate">
+					<div class="card-body mx-4">
+						<div class="text-center">
+							<h3 class="dark-grey-text mb-3">
+								<strong>用户注册</strong>
+							</h3>
+						</div>
 
-        <p class="status"></p>
-        <input type="hidden" id="signonsecurity" name="signonsecurity" value="8334571d2a"><input type="hidden" name="_wp_http_referer" value="/components/">
-        <div class="md-form">
-        	<i class="fa fa-user prefix grey-text"></i>
-            <input type="text" id="signonusername" class="form-control" >
-            <label for="signonname">用户名</label>
-        </div>
+						<p class="status"></p>
+						<input type="hidden" id="signonsecurity" name="signonsecurity" value="8334571d2a">
+						<input type="hidden" name="_wp_http_referer" value="/components/">
+						<div class="md-form">
+							<i class="fa fa-user prefix grey-text"></i>
+							<input type="text" id="signonusername" class="form-control">
+							<label for="signonname">用户名</label>
+						</div>
 
-        <div class="md-form">
-        	<i class="fa fa-lock prefix grey-text"></i>
-            <input type="password" id="signonpassword" class="form-control" >
-            <label for="signonusername">密码</label>
-        </div>
+						<div class="md-form">
+							<i class="fa fa-lock prefix grey-text"></i>
+							<input type="password" id="signonpassword" class="form-control">
+							<label for="signonusername">密码</label>
+						</div>
 
-        <div class="md-form">
-        	<i class="fa fa-lock prefix grey-text"></i>
-            <input type="password" id="signonreppassword" class="form-control" >
-            <label for="email">重复密码</label>
-        </div>
+						<div class="md-form">
+							<i class="fa fa-lock prefix grey-text"></i>
+							<input type="password" id="signonreppassword" class="form-control">
+							<label for="email">重复密码</label>
+						</div>
 
-        <div class="text-center mt-3 mb-3">
-            <button id="signon" class="btn btn-indigo waves-effect waves-light " type="button">注册</button>
-        </div>
-        <hr>
-        <div class="text-right">
-            <p class="login-font-small grey-text">注册完自动跳转 </p>
-        </div>
-    </div>
-</form>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
-</div>
+						<div class="text-center mt-3 mb-3">
+							<button id="signon" class="btn btn-indigo waves-effect waves-light " type="button">注册</button>
+						</div>
+						<hr>
+						<div class="text-right">
+							<p class="login-font-small grey-text">注册完自动跳转 </p>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+	</div>
 
 
 
-		<!-- /Start your project here-->
+	<!-- /Start your project here-->
 
-		<!-- SCRIPTS -->
-		<!-- JQuery -->
-		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-		<!-- Bootstrap tooltips -->
-		<script type="text/javascript" src="js/popper.min.js"></script>
-		<!-- Bootstrap core JavaScript -->
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<!-- MDB core JavaScript -->
-		<script type="text/javascript" src="js/mdb.min.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function(){
-				$("#signup").click(function(){
-//					window.location.href='./signUp.html';
-					$("#myModal").modal(Option);
-				})
-				
-				$("#signin").click(function(){
+	<!-- SCRIPTS -->
+	<!-- JQuery -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="js/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="js/mdb.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			if (localStorage.getItem("username") != null) {
+				login(localStorage.getItem("username"), localStorage.getItem("password"));
+			}
+			$("#signup").click(function () {
+				//					window.location.href='./signUp.html';
+				$("#myModal").modal(Option);
+			})
+
+			$("#signin").click(function () {
 				var userName = document.getElementById("userName").value;
 				var passWord = document.getElementById("passWord").value;
 				console.log(userName);
 				console.log(passWord);
 				if (!userName)
 					alert("用户名不能为空！");
-				else if (!passWord) 
+				else if (!passWord)
 					alert("密码不能为空！");
-				else{
-					var url = " http://127.0.0.1:3000/findUser"+"?"+"userName="+userName;
-					fetch(url,{
-						method:"GET"
-					}).then(function(response){
+				else {
+					var url = " http://127.0.0.1:3000/findUser" + "?" + "userName=" + userName;
+					fetch(url, {
+						method: "GET"
+					}).then(function (response) {
 						console.log(response);
 						return response.json();
-					}).then(function(json){
+					}).then(function (json) {
 						console.log(json);
 						var user = json[0];
-						if(!user){
+						if (!user) {
 							alert("没有这个账号");
 							return;
 						}
-						if(user.password == passWord){
-							if(document.getElementById("checkbox1").value == true){
-								localStorage.setItem("username",userName);
-								localStorage.setItem("password",passWord);
+						if (user.password == passWord) {
+							console.log(document.getElementById("checkbox1").value);
+							if (document.getElementById("checkbox1").checked == true) {
+								localStorage.setItem("username", userName);
+								localStorage.setItem("password", passWord);
 							}
-							sessionStorage.setItem("userid",user.userid);
-							sessionStorage.setItem("username",userName);
-							sessionStorage.setItem("password",passWord);
-							window.location.href='./main1.html';
+							else {
+								localStorage.removeItem("username");
+								localStorage.removeItem("password");
+							}
+							sessionStorage.setItem("userid", user.userid);
+							sessionStorage.setItem("username", userName);
+							sessionStorage.setItem("password", passWord);
+							window.location.href = './main1.html';
 						}
-						else{
+						else {
 							alert("密码错误！")
-						}							
-						
+						}
+
 					})
 				}
 
-				
+
 			})
-			})
-			
-		</script>
-		
-		<script type="text/javascript">
-			$("#signon").click(function(){
-				var username = document.getElementById("signonusername").value;
-				var pw1 = document.getElementById("signonpassword").value;
-				var pw2 = document.getElementById("signonreppassword").value;
-				console.log(username);
-				console.log(pw1);
-				console.log(pw2);
-				if (!username)
-					alert("用户名不能为空！");
-				else if (!pw1||!pw2) 
-				{
-					if(!pw1)
-						$("#signonpassword").focus();
-					else
-						$("#signonreppassword").focus();
-				}
-				else if (pw1!=pw2)
-					alert("两次密码输入不一致！");
-				else{
-					var url = " http://127.0.0.1:3000/findUser"+"?"+"userName="+username;
-					fetch(url,{
-						method:"GET"
-					}).then(function(response){
-						return response.json();
-					}).then(function(json){
-							console.log(json);
-							if(json.length!=0){
-								alert("账号已经存在！");
-								return false;
-							}
-						return true;
-					}).then(function(bool){
-						if(!bool)
-							return false;
-						fetch(" http://127.0.0.1:3000/addUser",{
-						method:"POST",
-//						header:{accept:"application/json"},
-//						body:null
+		})
+
+		$("#signon").click(function () {
+			var username = document.getElementById("signonusername").value;
+			var pw1 = document.getElementById("signonpassword").value;
+			var pw2 = document.getElementById("signonreppassword").value;
+			console.log(username);
+			console.log(pw1);
+			console.log(pw2);
+			if (!username)
+				alert("用户名不能为空！");
+			else if (!pw1 || !pw2) {
+				if (!pw1)
+					$("#signonpassword").focus();
+				else
+					$("#signonreppassword").focus();
+			}
+			else if (pw1 != pw2)
+				alert("两次密码输入不一致！");
+			else {
+				var url = " http://127.0.0.1:3000/findUser" + "?" + "userName=" + username;
+				fetch(url, {
+					method: "GET"
+				}).then(function (response) {
+					return response.json();
+				}).then(function (json) {
+					console.log(json);
+					if (json.length != 0) {
+						alert("账号已经存在！");
+						return false;
+					}
+					return true;
+				}).then(function (bool) {
+					if (!bool)
+						return false;
+					fetch(" http://127.0.0.1:3000/addUser", {
+						method: "POST",
+						//						header:{accept:"application/json"},
+						//						body:null
 						headers: {
-    						'Accept': 'application/json',
-    						'Content-Type': 'application/json'
-   						},
-   						body: JSON.stringify({
-       						"username":username,
-       						"password":pw1
+							'Accept': 'application/json',
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify({
+							"username": username,
+							"password": pw1
 						})
- 						}).then(function(response) {
-    						$("#myModal").modal('hide');
-    					}).catch(function(ex) {
-      						console.log('parsing failed: ', ex)
-    					})
-					}).catch(function(ex){
+					}).then(function (response) {
+						$("#myModal").modal('hide');
+						login(username, pw1);
+					}).catch(function (ex) {
 						console.log('parsing failed: ', ex)
 					})
-					
-				}
-			})
-		</script>
+				}).catch(function (ex) {
+					console.log('parsing failed: ', ex)
+				})
 
-	</body>
+			}
+		})
+
+		function login(username, password) {
+			let url = " http://127.0.0.1:3000/findUser" + "?" + "userName=" + username;
+			fetch(url, {
+				method: "GET"
+			}).then(function (response) {
+				console.log(response);
+				return response.json();
+			}).then(function (json) {
+				console.log(json);
+				var user = json[0];
+				if (!user) {
+					alert("没有这个账号");
+					return;
+				}
+				if (user.password == password) {
+					sessionStorage.setItem("userid", user.userid);
+					sessionStorage.setItem("username", username);
+					sessionStorage.setItem("password", password);
+					window.location.href = './main1.html';
+				}
+				else {
+					alert("密码错误！")
+				}
+
+			})
+		}
+	</script>
+
+</body>
 
 </html>

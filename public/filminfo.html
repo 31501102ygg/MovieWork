@@ -86,12 +86,12 @@
 				<!-- Links -->
 				<ul class="navbar-nav mr-auto nav-flex-icons">
 					<li class="nav-item">
-						<a class="nav-link waves-effect waves-light" href="#">
-							<i class="fa fa-envelope"></i> 联系我们</a>
+						<a class="nav-link waves-effect waves-light" href="./aboutus.html">
+							<i class="fa fa-gear"></i> 关于我们</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link waves-effect waves-light" href="#">
-							<i class="fa fa-gear"></i> 设置</a>
+						<a class="nav-link waves-effect waves-light" href="./contact.html">
+							<i class="fa fa-envelope"></i> 联系我们</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -99,7 +99,7 @@
 							<i class="fa fa-user"></i> 用户名称
 						</a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item waves-effect waves-light" href="#">我的账号</a>
+							<a class="dropdown-item waves-effect waves-light" href="./account.html">我的账号</a>
 							<a class="dropdown-item waves-effect waves-light" href="#">退出</a>
 						</div>
 					</li>
@@ -238,6 +238,7 @@
 						<div class="row">
 							<div class="col-md-10">
 								<a href="" data-toggle="modal" data-target="#modal_dp">点评</a>
+								<a href="" >删除</a>
 							</div>
 							<div class="col-md-2">
 								<a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -436,7 +437,7 @@
 			<div class="modal-content">
 				<!--Header-->
 				<div class="modal-header primary-color">
-					<p class="heading lead">短评点评</p>
+					<p id="modalhead" class="heading lead">短评点评</p>
 
 					<button id="modal-close2" type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true" class="white-text">&times;</span>
@@ -453,7 +454,7 @@
 						<textarea type="text" id="submitcomment" class="form-control md-textarea" rows="3"></textarea>
 						<label for="textareaPrefix" class="">
 							<font style="vertical-align: inherit;">
-								<font style="vertical-align: inherit;">给蓝骨和尚的评价</font>
+								<font id="modalbodytitle" style="vertical-align: inherit;">给蓝骨和尚的评价</font>
 							</font>
 						</label>
 					</div>
@@ -726,15 +727,15 @@
 				ei.setAttribute("style", "color: black;float: right;");
 				ei.className = "fa fa-thumbs-o-up";
 				ei.textContent = givelike;
-				ei.setAttribute("id","numoflike"+commentid);
-				ei.addEventListener("click",function(){
+				ei.setAttribute("id", "numoflike" + commentid);
+				ei.addEventListener("click", function () {
 					let className = ei.className;
-					if(className.indexOf("fa-thumbs-up") < 0 ){
+					if (className.indexOf("fa-thumbs-up") < 0) {
 						givelikes(commentid);
 						ei.className = "fa fa-thumbs-up";
 						let text = ei.textContent;
-						text = Number(text)+1;
-						ei.textContent = ""+text;
+						text = Number(text) + 1;
+						ei.textContent = "" + text;
 					}
 				})
 				a.appendChild(ei);
@@ -749,7 +750,7 @@
 				//添加留言伸缩条按钮
 				let row = document.createElement("div");
 				row.className = "row";
-
+				//点评按钮
 				let tianchong = document.createElement("div");
 				tianchong.className = "col-md-10";
 				let a_dp = document.createElement("a");
@@ -760,8 +761,19 @@
 				a_dp.setAttribute("value", commentid);
 				a_dp.addEventListener("click", function () {
 					sessionStorage.setItem("commentid", a_dp.getAttribute("value"));
+					$("#modalhead").text("短评点评("+$("#filmname").text()+")");
+					$("#modalbodytitle").text("给"+name+"的评价");
 				});
 				tianchong.appendChild(a_dp);
+				//删除按钮
+				let a_rm = document.createElement("a");
+				a_rm.setAttribute("href","");
+				a_rm.setAttribute("value",commentid);
+				a_rm.textContent = '删除';
+				a_rm.addEventListener("click",function(){
+					removeAShortComment(a_rm.getAttribute("value"));
+				});
+				tianchong.appendChild(a_rm);
 
 				let liuyan = document.createElement("div");
 				liuyan.className = "col-md-2";
@@ -780,7 +792,7 @@
 				h6.setAttribute("style", "float:right");
 				h6.textContent = "全部点评";
 				let i_rotate = document.createElement("i");
-				i_rotate.className = "fa fa-angle-down rotate-icon"
+				i_rotate.className = "fa fa-angle-down rotate-icon";
 				h6.appendChild(i_rotate);
 				a2.appendChild(h6);
 				liuyan.appendChild(a2);
@@ -838,27 +850,27 @@
 				console.log("print ex:" + ex);
 			})
 		})
-		function givelikes(commentid){
-			let url = "http://127.0.0.1:3000/comment/updatelike?" + "commentid=" + commentid+"&userid="+sessionStorage.getItem("userid");
-			fetch(url,{
-				method:"GET"
-			}).then(function(res){
+		function givelikes(commentid) {
+			let url = "http://127.0.0.1:3000/comment/updatelike?" + "commentid=" + commentid + "&userid=" + sessionStorage.getItem("userid");
+			fetch(url, {
+				method: "GET"
+			}).then(function (res) {
 				console.log("update");
 				return;
-			}).catch(function(ex){
-				console.log("print ex:"+ex);
+			}).catch(function (ex) {
+				console.log("print ex:" + ex);
 			})
 		}
-		function initlike(){
-			let url = "http://127.0.0.1:3000/comment/loaduserlike?" + "userid=" + sessionStorage.getItem("userid")+"&filmid="+sessionStorage.getItem("filmid");
-			fetch(url,{
-				method:"GET"
-			}).then(function(res){
+		function initlike() {
+			let url = "http://127.0.0.1:3000/comment/loaduserlike?" + "userid=" + sessionStorage.getItem("userid") + "&filmid=" + sessionStorage.getItem("filmid");
+			fetch(url, {
+				method: "GET"
+			}).then(function (res) {
 				return res.json();
-			}).then(function(jsons){
-				for(let i=0;i<jsons.length;i++){
+			}).then(function (jsons) {
+				for (let i = 0; i < jsons.length; i++) {
 					let commentid = jsons[i].commentid;
-					let strid = "numoflike"+commentid;
+					let strid = "numoflike" + commentid;
 					document.getElementById(strid).className = "fa fa-thumbs-up";
 				}
 			})
@@ -907,6 +919,24 @@
 				}
 			})
 		}
+		function removeAShortComment(commentid){
+			let url = "http://127.0.0.1:3000/comment/removecomment?" + "commentid=" + commentid;
+			fetch(url,{
+				method:'GET'
+			}).then(function(res){
+				return true;
+			}).catch(function(err){
+				console.log("删除短评过程中出现问题");
+			})
+		}
+		//退出账户
+		$("#out").click(function () {
+			localStorage.removeItem("username");
+			localStorage.removeItem("password");
+			sessionStorage.removeItem("username");
+			sessionStorage.removeItem("username");
+			sessionStorage.removeItem("userid");
+		})
 	</script>
 </body>
 

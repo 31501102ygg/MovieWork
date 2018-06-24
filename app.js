@@ -14,6 +14,8 @@ var getFilmInfoRouter = require("./routes/getfilminfo");
 var collectRouter = require('./routes/collect');
 var commentRouter = require('./routes/shortcomment');
 var reviewsRouter = require('./routes/filmReviews');
+var accountRouter = require('./routes/account');
+var contactRouter = require('./routes/contact');
 
 var app = express();
 
@@ -52,6 +54,8 @@ app.use('/filminfo',getFilmInfoRouter);
 app.use('/collect',collectRouter);
 app.use('/comment',commentRouter);
 app.use('/filmreviews',reviewsRouter);
+app.use('/account',accountRouter);
+app.use('/contact',contactRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

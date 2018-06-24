@@ -87,12 +87,12 @@
 				<!-- Links -->
 				<ul class="navbar-nav mr-auto nav-flex-icons">
 					<li class="nav-item">
-						<a class="nav-link waves-effect waves-light" href="#">
-							<i class="fa fa-envelope"></i> 联系我们</a>
+						<a class="nav-link waves-effect waves-light" href="./aboutus.html">
+							<i class="fa fa-gear"></i> 关于我们</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link waves-effect waves-light" href="#">
-							<i class="fa fa-gear"></i> 设置</a>
+						<a class="nav-link waves-effect waves-light" href="./contact.html">
+							<i class="fa fa-envelope"></i> 联系我们</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -100,7 +100,7 @@
 							<i class="fa fa-user"></i> 用户名称
 						</a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item waves-effect waves-light" href="#">我的账号</a>
+							<a class="dropdown-item waves-effect waves-light" href="./account.html">我的账号</a>
 							<a class="dropdown-item waves-effect waves-light" href="#">退出</a>
 						</div>
 					</li>
@@ -218,55 +218,55 @@
 	<script type="text/javascript" src="js/mdb.min.js"></script>
 
 	<script type="text/javascript">
-		console.log(sessionStorage.getItem("username")) ;
+		console.log(sessionStorage.getItem("username"));
 		$("#navbarDropdownMenuLink").html('<i class="fa fa-user"></i>' + sessionStorage.getItem("username"));
 		//加载影评
 		loadReview();
 		//搜索功能
-		$("#basic-text1").click(function(){
+		$("#basic-text1").click(function () {
 			let filmname = $("#sInput").val();
-			let url = "http://127.0.0.1:3000/filmreviews/searchfilmreviews?"+"filmname="+filmname;
-			fetch(url,{
-				method:"GET"
-			}).then(function(res){
+			let url = "http://127.0.0.1:3000/filmreviews/searchfilmreviews?" + "filmname=" + filmname;
+			fetch(url, {
+				method: "GET"
+			}).then(function (res) {
 				return res.json();
-			}).then(function(jsons){
-				if(jsons.length==0){
-					if($(".main-content").eq(0).children("div.container").eq(0).text()!='')
-						return ;
+			}).then(function (jsons) {
+				if (jsons.length == 0) {
+					if ($(".main-content").eq(0).children("div.container").eq(0).text() != '')
+						return;
 					loadReview();
 				}
 				$(".main-content").eq(0).children("div.container").eq(0).empty();
-				for(let i=0;i<jsons.length;i++){
+				for (let i = 0; i < jsons.length; i++) {
 					let info = jsons[i];
 					let card = createReviewElement(info);
 					console.log(card);
 					$(".main-content").eq(0).children("div.container").eq(0).append(card);
 				}
-			}).catch(function(ex){
-				console.log("搜索出错："+ex);
+			}).catch(function (ex) {
+				console.log("搜索出错：" + ex);
 			})
 		})
-		
+
 		//加载影评函数
-		function loadReview(){
+		function loadReview() {
 			let url = "http://127.0.0.1:3000/filmreviews/loadfilmreviews";
-			fetch(url,{
-				method:"GET"
-			}).then(function(res){
+			fetch(url, {
+				method: "GET"
+			}).then(function (res) {
 				return res.json();
-			}).then(function(jsons){
+			}).then(function (jsons) {
 				console.log(jsons);
-				for(let i=0;i<jsons.length;i++){
+				for (let i = 0; i < jsons.length; i++) {
 					let info = jsons[i];
 					let card = createReviewElement(info);
 					$(".main-content").eq(0).children("div.container").eq(0).append(card);
 				}
-			}).catch(function(ex){
-				console.log("print ex: "+ex);
+			}).catch(function (ex) {
+				console.log("print ex: " + ex);
 			})
 		}
-		function createReviewElement(info){
+		function createReviewElement(info) {
 			let card = document.createElement("div");
 			card.className = "card mb-3 text-center hoverable";
 			let card_body = document.createElement("div");
@@ -279,13 +279,13 @@
 			let view = document.createElement("div");
 			view.className = "view overlay col-md-11";
 			let img = document.createElement("img");
-			img.setAttribute("src",info.imghref);
-			img.setAttribute("alt","电影图片");
+			img.setAttribute("src", info.imghref);
+			img.setAttribute("alt", "电影图片");
 			img.className = "img-fluid";
 			let a = document.createElement("a");
-			a.setAttribute("href","./filminfo.html");
+			a.setAttribute("href", "./filminfo.html");
 			let mask = document.createElement("div");
-			mask.className  = "mask rgba-white-slight";
+			mask.className = "mask rgba-white-slight";
 			a.appendChild(mask);
 			view.appendChild(img);
 			view.appendChild(a);
@@ -294,7 +294,7 @@
 			//影评信息
 			// card.appendChild(row);
 			// return card;
-				//基本信息
+			//基本信息
 			col = document.createElement("div");
 			col.className = "col-md-8 text-left ml-3 mt-3";
 			let row_info = document.createElement("div");
@@ -303,7 +303,7 @@
 			colmd.className = "col-md-4";
 			let h6 = document.createElement("h6");
 			h6.className = "font-bold pb-1";
-			h6.innerHTML = '<i class="fa fa-user"></i> '+info.username;
+			h6.innerHTML = '<i class="fa fa-user"></i> ' + info.username;
 			let span_scoreStar = createScoreStar(info.score);
 			let time = document.createElement("div");
 			time.className = "col-md-6";
@@ -315,7 +315,7 @@
 			row_info.appendChild(span_scoreStar);
 			row_info.appendChild(time);
 			col.appendChild(row_info);
-				//标题
+			//标题
 			a = document.createElement("a");
 			let h4 = document.createElement("h4");
 			h4.className = "mb-4";
@@ -324,75 +324,75 @@
 			h4.appendChild(strong);
 			a.appendChild(h4);
 			col.appendChild(a);
-				//缩略影评
+			//缩略影评
 			let shortreview = document.createElement("div");
 			shortreview.className = "shortreview";
-			shortreview.setAttribute("id","short"+info.filmid);
+			shortreview.setAttribute("id", "short" + info.filmid);
 			let p = document.createElement("p");
 			p.textContent = info.shortreview;
 			shortreview.appendChild(p);
 			col.appendChild(shortreview);
-				//完整影评
+			//完整影评
 			let longreview = longReviewToP(info);
 			col.appendChild(longreview);
-				//展开按钮
+			//展开按钮
 			a = document.createElement("a");
 			a.className = "dropdownorup mb-0";
-			a.setAttribute("value",info.filmid);
-			a.innerHTML = '显示全部'+'<i class="fa fa-angle-down rotate-icon"></i>'
-				//添加click事件
-			a.addEventListener("click",function(){
+			a.setAttribute("value", info.filmid);
+			a.innerHTML = '显示全部' + '<i class="fa fa-angle-down rotate-icon"></i>'
+			//添加click事件
+			a.addEventListener("click", function () {
 				let filmid = this.getAttribute("value");
-			if(this.children[0].className.indexOf("fa-angle-down")>0){
-				$("#short"+filmid).eq(0).attr("style","display:none");
-				$("#long"+filmid).eq(0).attr("style","display:block");
-				this.textContent = "收起";
-				let i = document.createElement("i");
-				i.className = "fa fa-angle-up rotate-icon";
-				this.appendChild(i);
-			}
-			else{
-				$("#long"+filmid).eq(0).attr("style","display:none");
-				$("#short"+filmid).eq(0).attr("style","display:block");
-				this.textContent = "查看全部";
-				let i = document.createElement("i");
-				i.className = "fa fa-angle-down rotate-icon";
-				this.appendChild(i);
-			}
+				if (this.children[0].className.indexOf("fa-angle-down") > 0) {
+					$("#short" + filmid).eq(0).attr("style", "display:none");
+					$("#long" + filmid).eq(0).attr("style", "display:block");
+					this.textContent = "收起";
+					let i = document.createElement("i");
+					i.className = "fa fa-angle-up rotate-icon";
+					this.appendChild(i);
+				}
+				else {
+					$("#long" + filmid).eq(0).attr("style", "display:none");
+					$("#short" + filmid).eq(0).attr("style", "display:block");
+					this.textContent = "查看全部";
+					let i = document.createElement("i");
+					i.className = "fa fa-angle-down rotate-icon";
+					this.appendChild(i);
+				}
 			})
 			col.appendChild(a);
-			
+
 			row.appendChild(col);
 			card_body.appendChild(row);
 			card.appendChild(card_body);
 			return card;
 		}
-		function createScoreStar(score){
+		function createScoreStar(score) {
 			let span = document.createElement("span");
 			span.className = "col-md-2";
-			span.setAttribute("style","color:#fdd835 ")
-			for(let i=0;i<score;i++){
+			span.setAttribute("style", "color:#fdd835 ")
+			for (let i = 0; i < score; i++) {
 				let icon = document.createElement("i");
 				icon.className = "fa fa-star";
 				span.appendChild(icon);
 			}
-			for(let i=0;i<5-score;i++){
+			for (let i = 0; i < 5 - score; i++) {
 				let icon = document.createElement("i");
 				icon.className = "fa fa-star-o";
 				span.appendChild(icon);
 			}
 			return span;
 		}
-		function longReviewToP(info){
+		function longReviewToP(info) {
 			let longreview = document.createElement("div");
 			longreview.className = "longreview";
-			longreview.setAttribute("id","long"+info.filmid);
-			longreview.setAttribute("style","display: none;");
+			longreview.setAttribute("id", "long" + info.filmid);
+			longreview.setAttribute("style", "display: none;");
 			//text分段落
 			let text = info.longreview;
 			var paragraphs = text.split(/[\n]+/g);
 			//标签p填充段落
-			for(let i=0;i<paragraphs.length;i++){
+			for (let i = 0; i < paragraphs.length; i++) {
 				let p = document.createElement("p");
 				p.textContent = paragraphs[i];
 				longreview.appendChild(p);
@@ -405,6 +405,15 @@
 			var da = new Date(value.replace("/Date(", "").replace(")/", "").split("+")[0]);
 			return da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate() + " " + da.getHours() + ":" + da.getMinutes() + ":" + da.getSeconds();
 		}
+
+		//退出账户
+		$("#out").click(function () {
+			localStorage.removeItem("username");
+			localStorage.removeItem("password");
+			sessionStorage.removeItem("username");
+			sessionStorage.removeItem("username");
+			sessionStorage.removeItem("userid");
+		})
 	</script>
 </body>
 
